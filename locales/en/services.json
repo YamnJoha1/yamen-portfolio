@@ -1,0 +1,15 @@
+{
+  "services": {
+    "title": "Services",
+    "software": "Web Development",
+    "mobileDev": "Mobile Development",
+    "design": "UI/UX Design",
+    "consulting": "Tech Consulting",
+    "description": {
+    "software": "Custom software solutions tailored to your business needs",
+    "design": "Beautiful and intuitive user interfaces that engage users",
+    "consulting": "Expert guidance on technology strategy and implementation",
+    "mobileDev": "Native and cross-platform mobile applications"
+  }
+  }
+}

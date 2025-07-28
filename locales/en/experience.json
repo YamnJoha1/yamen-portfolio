@@ -1,0 +1,63 @@
+{
+  "experience": {
+    "title": "Work Experience",
+    "subtitle": "What I have done so far",
+    "list": [
+      {
+        "title": "Lead Frontend Engineer",
+        "company": "Scripto ",
+        "date": "May 2025 – Presen",
+        "icon": "/logos/scripto-logo.png",
+        "iconBg": "#111",
+        "points": [
+          "Led frontend architecture and development using Next.js, TypeScript, and Tailwind CSS.",
+          "Built scalable and accessible UI components with Radix UI and Shadcn/ui.",
+          "Integrated backend services using Node.js, Prisma, GraphQL, and Stripe.",
+          "Managed deployments with Docker, Vercel, and AWS (basic).",
+          "Implemented analytics and monitoring via Google Analytics and Sentry.",
+          "Enabled internationalization (i18n) to support multiple languages and regions.",
+          "Collaborated with designers and backend developers to deliver full product experiences."
+
+        ]
+      },
+      {
+        "title": "Frontend Developer (Freelancer )",
+        "company": "Remote / Self-Employed",
+        "date": "Jan 2024 – Apr 2025",
+        "icon": "/logos/freelancer.png",
+        "iconBg": "#E6DEDD",
+        "points": [
+          "Delivered production-ready websites and apps using React.js and Next.js.",
+          "Focused on performance optimization, accessibility, and responsive design.",
+          "Applied state management via Redux and React Hook Form.",
+          "Collaborated closely with clients and designers to translate specs into working products."
+        ]
+      },
+      {
+        "title": "Frontend Developer (React js)",
+        "company": "Unifi Solutions",
+        "date": " May 2023 – Dec 2023",
+        "icon": "/logos/unifi-solutions-icon.png",
+        "iconBg": "#b98f43",
+        "points": [
+          "Created efficient and effective software solutions to meet client requirements and enhance user experience.",
+          "Built and maintained user interfaces using React.js (MUI), ensuring a seamless and intuitive user experience.",
+          "Improved website performance and speed by optimizing code and implementing best practices.",
+          "Created comprehensive documentation for codebases.",
+          "Worked closely with designers, back-end developers, and project managers."
+        ]
+      },
+      {
+        "title": "Junior Web Developer (Freelancer)",
+        "company": "Remote / Project-based",
+        "date": "Mar 2022 – May 2023",
+        "icon": "/logos/freelancer.png",
+        "iconBg": "#b98f43",
+        "points": [
+          "Built responsive web applications for small clients using React.js and CSS frameworks.",
+          "Gained experience in real-world development cycles and remote team collaboration."
+        ]
+      }
+    ]
+  }
+}

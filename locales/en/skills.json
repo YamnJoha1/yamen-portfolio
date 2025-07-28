@@ -1,0 +1,12 @@
+{
+  "skills": {
+      "title": "Technical Skills",
+      "subtitle": "A comprehensive overview of my technical expertise and proficiency levels across various technologies and tools",
+      "frontendTitle": "Frontend Development",
+      "frontendDesc": "Expert in modern frontend frameworks and technologies, creating responsive and interactive user interfaces",
+      "backendTitle": "Backend Development",
+      "backendDesc": "Skilled in server-side development with Node.js and modern backend frameworks",
+      "fullstackTitle": "Full Stack Development",
+      "fullstackDesc": "End-to-end development capabilities from database design to deployment"
+  }
+} 

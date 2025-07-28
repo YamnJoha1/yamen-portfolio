@@ -1,0 +1,13 @@
+{
+  "home": {
+    "hero": {
+      "title": "Welcome to my portfolio",
+      "subtitle": "I'm Yamen, a Full Stack Developer specializing in crafting modern, intuitive user interfaces and building robust backend systems.  ",
+      "cta": "Get in touch",
+      "bprojects": "My Projects"
+    },
+    "graph": {
+      "title": "Building the future with cutting-edge technologies"
+    }
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "projects": {
+    "title": "Latest Projects",
+    "description": "Discover my successful projects and innovative solutions",
+    "backToProjects": "Back to Projects",
+    "projectNotFound": "Project not found",
+    "viewAll": "View All Projects",
+    "viewDemo": "View Demo",
+    "category": "Category",
+    "type": "Type",
+    "year": "Year",
+    "client": "Client",
+    "technologies": "Technologies Used",
+    "features": "Key Features",
+    "duration": "Duration",
+    "teamSize": "Team Size",
+    "status": "Status",
+    "viewLive": "View Live",
+    "viewCode": "View Code",
+    "liveDemo": "Live Demo",
+    "techStack": "Tech Stack",
+    "viewDetails": "View Details",
+    "activeFilters": "Active Filters",
+    "clearAllFilters": "Clear All Filters",
+    "devicePreviews": "Device Previews",
+    "projectOverview": "Project Overview",
+    "keyFeatures": "Key Features",
+    "quickLinks": "Quick Links",
+    "projectPreview": "Project Preview",
+    "purposeText": "This project was built with the purpose of",
+    "goalText": "The main goal is to provide",
+    "audienceText": "It is intended for",
+    "defaultPurpose": "This project was built as a personal challenge to enhance my skills.",
+    "defaultGoal": "The main goal is to provide a clean and responsive user experience.",
+    "defaultAudience": "It is intended for personal use and portfolio presentation.",
+
+    "scriptoWebsite": {
+      "title": "Scripto Company Website",
+      "description": "A portfolio landing page for a startup specialized in software development and digital solutions.",
+      "overview": "Scripto is a startup based in Damascus, specialized in crafting integrated digital solutions such as websites, web & mobile applications, and brand identities. The website features a modern UI, high performance, and a polished user experience that reflects the team’s technical identity and vision. It highlights the company’s mission, current services, and ongoing work, aiming to attract clients and partners locally and internationally.",
+      "features": [
+        "Modern responsive design",
+        "Dark mode support",
+        "Multilingual support",
+        "SEO optimization",
+        "Smooth page transitions with Framer Motion",
+        "Interactive components (tabs, dialogs)",
+        "Service showcase and domain focus",
+        "Clean UI reflecting brand identity"
+      ],
+      "status": "Launched – currently being improved",
+      "audience": "Startups, entrepreneurs, investors",
+      "goal": "Showcase team services and establish digital presence",
+      "purpose": "Attract potential clients and build trust"
+    },
+
+    "realEstate": {
+      "title": "Real Estate Platform",
+      "description": "A modern real estate platform offering property listings, smart filtering, and user-friendly design.",
+      "overview": "This SaaS platform is designed for real estate agencies and individual property owners. It allows users to browse, search, and filter properties by location, type, and price. Built with Next.js on the frontend and NestJS on the backend, the platform uses PostgreSQL for data storage and Cloudinary for image handling.",
+      "features": [
+        "Dynamic property listing",
+        "Smart filters (location, price, type)",
+        "Image upload with Cloudinary",
+        "Multi-language support",
+        "Dark/light theme toggle"
+      ],
+      "status": "In Development",
+      "audience": "Real estate agencies, independent property owners",
+      "goal": "To provide a user-friendly, efficient tool for managing and showcasing properties online.",
+      "purpose": "A portfolio SaaS project demonstrating full-stack capabilities and scalable architecture."
+    },
+
+    "caros": {
+      "title": "Caros - Car Rental and Sales Platform",
+      "description": "A modern platform offering premium car rental and sales services tailored for individuals and businesses.",
+      "overview": "Caros is a comprehensive vehicle rental and sales platform providing customers with access to luxury and economy vehicles. From airport transfers and wedding events to intercity travel and business meetings, Caros ensures safety, convenience, and quality.",
+      "features": [
+        "Book or buy cars online with ease",
+        "Premium and economy vehicle selection",
+        "24/7 customer support and booking",
+        "Mobile-responsive user interface",
+        "Multilingual support (Arabic / English)",
+        "Secure and fast reservation process"
+      ],
+      "audience": "Individuals and businesses looking for reliable transportation and premium vehicle services.",
+      "goal": "To simplify car rental and sales in the region through an elegant and user-friendly online platform.",
+      "purpose": "Provide seamless access to car rental and sales with high-quality service and modern booking features.",
+      "status": "In development"
+    },
+
+    "ecommercePlatform": {
+      "title": "E-commerce Platform",
+      "description": "A modern multi-platform e-commerce application supporting web and mobile with secure payments and admin management.",
+      "overview": "This project is a complete e-commerce solution built with Next.js on the frontend, NestJS and Prisma for backend and database, and React Native for the mobile app. It supports user authentication, product browsing, filtering, cart system, Stripe payments, and admin panel for product and order management. It features localization and responsive design.",
+      "features": [
+        "Product catalog and filtering",
+        "Cart and checkout with Stripe",
+        "User authentication",
+        "Admin dashboard",
+        "Mobile app with React Native",
+        "Multi-language support",
+        "Dark/light theme"
+      ],
+      "status": "In Development",
+      "audience": "Small to mid-sized businesses, entrepreneurs",
+      "goal": "To create a reusable and scalable e-commerce system suitable for various business cases.",
+      "purpose": "A professional SaaS product demonstrating full-stack architecture across platforms."
+    },
+
+    "bookLibrary": {
+      "title": "Online Book Library",
+      "description": "A responsive web-based library app with authentication and image management.",
+      "overview": "This project is a fully responsive online book library that allows users to register and log in to browse a collection of books. Built using Next.js with Drizzle ORM connected to a Neon PostgreSQL database. ImageKit is used for media management and NextAuth for secure authentication. Designed with accessibility and performance in mind.",
+      "features": [
+        "User registration and login",
+        "Book list display",
+        "Image hosting via ImageKit",
+        "Rate-limiting via Upstash",
+        "Fully responsive design",
+        "Secure session management with NextAuth"
+      ],
+      "status": "Completed",
+      "audience": "General readers, developers, demo purposes",
+      "goal": "To demonstrate the use of modern stack with Drizzle ORM and image management in a book catalog system.",
+      "purpose": "A showcase of clean architecture, authentication flow, and integrations with modern services."
+    },
+
+    "reactPortfolio": {
+      "title": "Animated React Portfolio",
+      "description": "A 3D animated personal portfolio built with React and Three.js.",
+      "overview": "This project is a modern personal portfolio website featuring smooth animations and interactive 3D elements. It is built using React with Vite, and integrates Three.js via @react-three/fiber. The portfolio showcases work experience, skills, and contact features, providing a dynamic user experience using Framer Motion and EmailJS for sending messages.",
+      "features": [
+        "Animated 3D components with Three.js",
+        "Smooth transitions using Framer Motion",
+        "Contact form integrated with EmailJS",
+        "Responsive layout with Tailwind CSS",
+        "Projects and timeline display",
+        "Single-page application with React Router"
+      ],
+      "status": "Completed",
+      "audience": "Recruiters, clients, and general visitors",
+      "goal": "To demonstrate technical and visual skills in a highly interactive format.",
+      "purpose": "A personal branding tool highlighting skills and past work with engaging visual effects."
+    },
+
+
+    "iphone": {
+      "title": "iPhone 15 3D Interactive Showcase",
+      "description": "Interactive 3D product display of iPhone 15 and iPhone 15 Pro.",
+      "overview": "This is a visually rich and interactive 3D showcase of iPhone 15 models, both standard and Pro. Users can explore different colors, rotate the device, and view realistic animations using Three.js and GSAP. Built with React, Vite, and @react-three/fiber.",
+      "features": [
+        "Full 3D models of iPhone 15 and 15 Pro",
+        "Realistic materials and reflections",
+        "Interactive rotation and animation",
+        "Color switching functionality",
+        "GSAP-based entrance and motion effects",
+        "Optimized performance with Vite and Drei"
+      ],
+      "status": "Completed",
+      "audience": "Tech lovers, designers, product teams",
+      "goal": "To present a high-fidelity 3D experience for iPhone product exploration.",
+      "purpose": "A visual demo showcasing Three.js capabilities and advanced animation."
+    },
+
+    "brainwave": {
+      "title": "Brainwave Landing Page",
+      "description": "Simple and stylish website with scroll animations and parallax effects.",
+      "overview": "Brainwave is a clean and modern landing page built with React and Tailwind CSS. It features smooth scrolling, parallax sections, and elegant layout transitions. Designed for showcasing products or ideas in a visually appealing way.",
+      "features": [
+        "Minimal modern design",
+        "Smooth scroll experience",
+        "Parallax effects with react-just-parallax",
+        "Mobile responsive layout",
+        "Tailwind CSS styling",
+        "Fast build with Vite"
+      ],
+      "status": "Completed",
+      "audience": "General web users, startups, demo viewers",
+      "goal": "To provide a lightweight and attractive landing experience.",
+      "purpose": "A polished front page concept to test scroll and parallax animations."
+    },
+
+    
+   
+    
+
+    "categories": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile"
+    },
+    "types": {
+      "all": "All",
+      "landing": "Landing Page",
+      "marketplace": "Marketplace",
+      "ecommerce": "E-commerce",
+      "dashboard": "Dashboard",
+      "ios & android": "iOS & Android App",
+      "blog": "Blog",
+      "sass": "SASS",
+      "real-estate": "Real Estate"
+    },
+    "noPreviewAvailable": "No {device} preview available.",
+    "videoLoadError": "Failed to load video preview.",
+    "loadingVideo": "Loading video...",
+    "noFeaturesAvailable": "No features available for this project.",
+    "noTechnologiesAvailable": "No technologies listed for this project.",
+    "relatedProjects": "Related Projects",
+    "viewAllProjects": "View All Projects",
+    "viewProject": "View Project",
+    "shareProject": "Share Project",
+    "share": "Share",
+    "shareOnTwitter": "Share on Twitter",
+    "shareOnLinkedIn": "Share on LinkedIn",
+    "shareOnFacebook": "Share on Facebook",
+    "copyLink": "Copy Link",
+    "copied": "Copied!",
+    "linkCopied": "Link copied to clipboard!",
+    "copyFailed": "Failed to copy link",
+    "imageLoadError": "Failed to load {device} image."
+  }
+}

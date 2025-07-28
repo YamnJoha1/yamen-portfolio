@@ -1,0 +1,50 @@
+📂 مجلدات المشروع:
+/app
+  /about
+    page.tsx
+  /services
+    page.tsx
+  /projects
+    page.tsx
+  /contact
+    page.tsx
+  layout.tsx   (لـ Header + Footer)
+  page.tsx     (الصفحة الرئيسية)
+  globals.css (ملفات ستايل إضافية)
+
+/components
+  Navbar.tsx
+  Footer.tsx
+  HeroSection.tsx
+  ServicesSection.tsx
+  ProjectsSection.tsx
+  ContactSection.tsx
+
+
+/lib
+  utils.ts (دوال مساعدة)
+
+/hooks
+  useThemeSwitcher.ts (مثلا لتبديل الوضع الليلي)
+
+/public
+  logo.svg
+  images
+
+  --------------------------------
+
+📦  المكتبات :
+framer-motion
+@tanstack/react-query
+next-themes
+lucide-react
+class-variance-authority clsx
+shadcn@latest 
+
+-------------
+'primary-light': '#1A1A1A',
+'primary-dark': '#000000',
+'accent-light': '#FFD700',
+'success': '#22c55e', // أخضر
+'error': '#ef4444',   // أحمر
+'warning': '#facc15', // أصفر

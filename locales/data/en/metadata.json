@@ -1,0 +1,19 @@
+{
+  "global": {
+    "siteName": "Yamen Joha | Personal Portfolio",
+    "defaultDescription": "Frontend developer specialized in building modern, smooth web applications using React.js, Next.js, and TypeScript.",
+    "defaultImage": "/logos/yamn-jo.png"
+  },
+  "pages": {
+    "home": {
+      "title": "Welcome to Yamen Joha's Portfolio",
+      "description": "I am Yamen Joha, building modern web apps with a focus on efficient and attractive user interfaces. Explore my skills, projects, and professional experience.",
+      "image": "/logos/yamn-jo.png"
+    },
+    "projects": {
+      "title": "My Projects",
+      "description": "Discover a selection of my personal and professional projects that showcase my expertise and passion for web development and design.",
+      "image": "/logos/yamn-jo.png"
+    }
+  }
+}

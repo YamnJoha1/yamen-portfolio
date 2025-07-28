@@ -1,0 +1,26 @@
+{
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Get in touch with us for any inquiries",
+    "form": {
+      "title": "Send us a Message",
+      "description": "Fill out the form below and we'll get back to you as soon as possible",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "sending": "sending...",
+      "message": "Message",
+      "submit": "Send Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "subjectPlaceholder": "Your subject",
+      "messagePlaceholder": "Your message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "social": {
+      "title": "Social Contact",
+      "description": "Follow us on our social media"
+    }
+  }
+}
