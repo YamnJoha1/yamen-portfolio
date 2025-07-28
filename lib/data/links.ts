@@ -4,12 +4,12 @@ import { Linkedin, MapPin, Phone } from "lucide-react";
 export const navSocialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/yourusername",
+    href: "https://github.com/YamnJoha1",
     icon: SiGithub,
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://linkedin.com/in/yamn-joha-45586a267",
     icon: Linkedin,
   },
   {
@@ -27,12 +27,12 @@ export const navSocialLinks = [
 export const socialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/yourusername",
+    href: "https://github.com/YamnJoha1",
     icon: SiGithub,
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://linkedin.com/in/yamn-joha-45586a267",
     icon: Linkedin,
   },
   {

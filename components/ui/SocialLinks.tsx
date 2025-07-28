@@ -15,18 +15,13 @@ interface SocialLinksProps {
 const defaultSocialLinks: SocialLink[] = [
   {
     icon: Github,
-    href: "https://github.com/yourusername",
+    href: "https://github.com/YamnJoha1",
     label: "GitHub",
   },
   {
     icon: Linkedin,
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://linkedin.com/in/yamn-joha-45586a267",
     label: "LinkedIn",
-  },
-  {
-    icon: Twitter,
-    href: "https://twitter.com/yourusername",
-    label: "Twitter",
   },
 ];
 
