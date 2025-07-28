@@ -12,7 +12,7 @@ export default function AboutSection() {
   const locale = useLocale();
 
   return (
-    <Section id="about" className="bg-muted/30">
+    <Section id="about" className="bg-muted/30 pl-4">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Column - Personal Info */}
         <motion.div

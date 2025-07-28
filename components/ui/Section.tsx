@@ -41,8 +41,8 @@ export const Section = ({
             {title && (
               <div
                 className={cn(
-                  "items-center gap-4",
-                  isCentered ? "flex flex-col justify-center" : "flex justify-between"
+                  "items-center lg:gap-4 gap-8",
+                  isCentered ? "flex flex-col justify-center" : "flex flex-col lg:flex-row justify-between"
                 )}
               >
                 <div className="w-fit group">
@@ -65,7 +65,7 @@ export const Section = ({
                     <div
                       className={cn(
                         "relative h-1 mt-3 bg-accent",
-                        isCentered ? "w-1/2" : "w-[50%]"
+                        isCentered ? "w-1/2" : "w-[30%]"
                       )}
                     >
                       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-accent bg-muted" />
