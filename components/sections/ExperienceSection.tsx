@@ -33,7 +33,7 @@ export default function ExperienceSection() {
       titleAlign="left"
       titleMarginBottom="mb-10"
       titleSlotRight={
-        <Link href="/YamnJoha-CV.pdf" target="_blank" rel="noopener noreferrer">
+        <Link href="/YamenJoha-CV.pdf" target="_blank" rel="noopener noreferrer">
           <Button variant="outline" size="default" className="flex items-center gap-2">
             <Download className="w-4 h-4" />
             {locale === "ar" ? "عرض السيرة الذاتية" : "View CV"}

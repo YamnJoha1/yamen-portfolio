@@ -18,8 +18,9 @@ export const fadeIn = (
   delay = DEFAULT_DELAY,
   duration = DEFAULT_DURATION
 ): Variants => {
-  const x = direction === "left" ? 100 : direction === "right" ? -100 : 0;
-  const y = direction === "up" ? 100 : direction === "down" ? -100 : 0;
+  const OFFSET = 30; // Reduced from 100 for mobile safety
+  const x = direction === "left" ? OFFSET : direction === "right" ? -OFFSET : 0;
+  const y = direction === "up" ? OFFSET : direction === "down" ? -OFFSET : 0;
 
   return {
     hidden: { x, y, opacity: 0 },
@@ -39,8 +40,9 @@ export const slideIn = (
   delay = DEFAULT_DELAY,
   duration = DEFAULT_DURATION
 ): Variants => {
-  const x = direction === "left" ? 100 : direction === "right" ? -100 : 0;
-  const y = direction === "up" ? 100 : direction === "down" ? -100 : 0;
+  const OFFSET = 30; // Reduced from 100 for mobile safety
+  const x = direction === "left" ? OFFSET : direction === "right" ? -OFFSET : 0;
+  const y = direction === "up" ? OFFSET : direction === "down" ? -OFFSET : 0;
 
   return {
     hidden: { opacity: 0, x, y },
@@ -85,10 +87,9 @@ export const delayedItemVariants: Variants = {
   }),
 };
 
-// Stagger container for multiple children
 export const staggerContainer = (
-  staggerChildren = 0.1,
-  delayChildren = 0
+  staggerChildren: number = 0.15,
+  delayChildren: number = 0
 ): Variants => ({
   hidden: {},
   visible: {
