@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, type LucideIcon } from "lucide-react";
+import { Github, Linkedin, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SocialLink {
