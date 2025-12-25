@@ -318,7 +318,7 @@ const MobileNav = () => {
                   <div className="flex justify-center gap-4">
                     {socialLinks.map((item, index) => (
                       <motion.div
-                        key={item.name}
+                        key={item.labelKey}
                         whileHover={{ scale: 1.2, y: -2 }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ delay: index * 0.1 }}
@@ -328,7 +328,7 @@ const MobileNav = () => {
                           className="flex items-center justify-center w-10 h-10 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 border border-border/30"
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={item.name}
+                          aria-label={item.labelKey}
                         >
                           <item.icon className="h-5 w-5" aria-hidden="true" />
                         </Link>

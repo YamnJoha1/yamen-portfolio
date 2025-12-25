@@ -1,14 +1,14 @@
-import { Variants } from "framer-motion";
+import { Variants, Easing } from "framer-motion"; // Import Easing type
 
 type MotionType = "tween" | "spring" | "inertia" | "keyframes";
 
 const DEFAULT_DELAY = 0;
 const DEFAULT_DURATION = 0.5;
-const DEFAULT_EASE = "easeOut";
+const DEFAULT_EASE: Easing = "easeOut"; // Explicitly define the type as Easing
 
 const defaultTransition = {
   duration: DEFAULT_DURATION,
-  ease: DEFAULT_EASE,
+  ease: DEFAULT_EASE, // Use the typed constant
 };
 
 // Fade in from a direction
@@ -54,7 +54,6 @@ export const slideIn = (
     },
   };
 };
-
 
 export const containerVariants: Variants = {
   hidden: {},
