@@ -24,7 +24,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="bg-card dark:bg-card/80 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col"
+      className="bg-card dark:bg-card/80 rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:border-border/50 transition-shadow h-full flex flex-col p-0"
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       {/* Project Image */}
@@ -33,11 +33,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <Image
             src={project.desktopImage ?? "/images/placeholder.webp"}
             alt={project.titleKey}
-            objectPosition="top"
             fill
-            className="object-cover transition-transform group-hover:scale-105"
+            className="object-cover object-top transition-transform group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-black/50 dark:bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/50 dark:bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center h-[103%]">
             <p className="text-white font-medium">
               {t("viewDetails")}
             </p>
@@ -60,9 +59,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           {/* Description */}
-          <p className="text-muted-foreground mb-4">
+          <p className="text-muted-foreground mb-3">
             {t(project.descriptionKey)}
           </p>
+          {project.audienceKey && (
+            <div className="mb-4">
+              <span className="block text-sm font-medium text-foreground">
+                {t("audienceText")}:
+              </span>
+              <p className="text-sm text-muted-foreground">
+                {t(project.audienceKey)}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Footer: Tech Stack + Action Buttons */}

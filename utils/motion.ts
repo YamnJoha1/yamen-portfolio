@@ -1,4 +1,4 @@
-import { Transition, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
 
 type MotionType = "tween" | "spring" | "inertia" | "keyframes";
 
@@ -6,7 +6,7 @@ const DEFAULT_DELAY = 0;
 const DEFAULT_DURATION = 0.5;
 const DEFAULT_EASE = "easeOut";
 
-const defaultTransition: Transition = {
+const defaultTransition = {
   duration: DEFAULT_DURATION,
   ease: DEFAULT_EASE,
 };

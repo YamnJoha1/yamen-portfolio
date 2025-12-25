@@ -53,7 +53,7 @@ export function Filters({
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex flex-wrap items-center gap-3 mb-4"
+          className="flex flex-wrap items-center gap-3 mb-4 border-b border-border"
         >
           <span className="text-sm text-muted-foreground">{t("activeFilters") || "Active Filters:"}</span>
 

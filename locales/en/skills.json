@@ -1,12 +1,14 @@
 {
   "skills": {
       "title": "Technical Skills",
-      "subtitle": "A comprehensive overview of my technical expertise and proficiency levels across various technologies and tools",
+      "subtitle": "An overview of my expertise in frontend development and supporting backend technologies",
       "frontendTitle": "Frontend Development",
-      "frontendDesc": "Expert in modern frontend frameworks and technologies, creating responsive and interactive user interfaces",
-      "backendTitle": "Backend Development",
-      "backendDesc": "Skilled in server-side development with Node.js and modern backend frameworks",
-      "fullstackTitle": "Full Stack Development",
-      "fullstackDesc": "End-to-end development capabilities from database design to deployment"
+      "frontendDesc": "Proficient in modern frontend frameworks and technologies to create responsive, accessible, and interactive user interfaces",
+      "uiTitle": "UI Implementation & Styling",
+      "uiDesc": "Experience in converting Figma designs into interactive frontend interfaces",
+      "backendTitle": "Backend Basics",
+      "backendDesc": "Familiar with server-side development using Node.js and Express, integrating databases like PostgreSQL and external services",
+      "fullstackTitle": "Frontend-Backend Integration",
+      "fullstackDesc": "Able to connect frontend with backend services and handle integration tasks to ensure smooth end-to-end application workflows"
   }
-} 
+}

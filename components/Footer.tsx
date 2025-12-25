@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
-import { navSocialLinks } from "@/lib/data/links";
+import { socialLinks } from "@/lib/data/links";
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -27,14 +27,14 @@ export default function Footer() {
               {t("description")}
             </p>
             <div className="flex justify-center md:justify-start gap-6">
-              {navSocialLinks.map((item) => (
+              {socialLinks.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.labelKey}
                   href={item.href}
                   className="text-muted-foreground hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={item.name}
+                  aria-label={item.labelKey}
                 >
                   <item.icon className="h-6 w-6" />
                 </Link>

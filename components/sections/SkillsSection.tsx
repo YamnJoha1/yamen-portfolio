@@ -12,19 +12,13 @@ import {
   SiNestjs,
   SiNodedotjs,
   SiPostgresql,
-  SiFirebase,
   SiVercel,
-  SiFigma,
   SiGithub,
   SiJavascript,
   SiCss3,
-  SiDocker,
   SiGit,
   SiPrisma,
   SiStripe,
-  SiAmazon,
-  SiJest,
-  SiCypress,
   SiWebpack,
   SiBabel,
   SiExpress,
@@ -32,9 +26,7 @@ import {
 } from "@icons-pack/react-simple-icons";
 import { 
   Code2, 
-  Palette, 
   Cloud, 
-  TestTube, 
   Settings,
   Zap,
   Smartphone
@@ -53,69 +45,57 @@ const skills: Skill[] = [
   { name: "React", icon: SiReact, color: "#61DAFB", level: 85, category: "frontend" },
   { name: "Next.js", icon: SiNextdotjs, color: "#000000", level: 90, category: "frontend" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6", level: 85, category: "frontend" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", level: 92, category: "frontend" },
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", level: 90, category: "frontend" },
-  { name: "CSS3", icon: SiCss3, color: "#1572B6", level: 90, category: "frontend" },
+  { name: "Redux", icon: SiRedux, color: "#764ABC", level: 70, category: "frontend" },
   { name: "React Query", icon: null, color: "#FF4154", level: 75, category: "frontend" },
+  { name: "React Hook Form", icon: null, color: "#EC5990", level: 70, category: "frontend" },
   
-  // Mobile
-  { name: "React Native", icon: SiReact, color: "#61DAFB", level: 68, category: "mobile" },
-  { name: "Expo", icon: null, color: "#000020", level: 65, category: "mobile" },
-  { name: "Context API", icon: SiReact, color: "#61DAFB", level: 70, category: "mobile" },
-  { name: "Redux", icon: SiRedux, color: "#764ABC", level: 70, category: "mobile" },
-  { name: "React Hook Form", icon: null, color: "#EC5990", level: 70, category: "mobile" },
-  { name: "Framer Motion", icon: null, color: "#FF0080", level: 85, category: "mobile" },
+  //UI & Styling
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", level: 92, category: "ui" },
+  { name: "Framer Motion", icon: null, color: "#FF0080", level: 85, category: "ui" },
+  { name: "Shadcn/ui", icon: null, color: "#000000", level: 80, category: "ui" },
+  { name: "CSS3", icon: SiCss3, color: "#1572B6", level: 90, category: "ui" },
+  { name: "Three js", icon: null, color: "#15f2B6", level: 90, category: "ui" },
+  
 
-  // Backend & Database
+  // Mobile / Learning
+  { name: "React Native", icon: SiReact, color: "#61DAFB", level: 65, category: "learning" },
+  { name: "Expo", icon: null, color: "#000020", level: 60, category: "learning" },
+  { name: "Context API", icon: SiReact, color: "#61DAFB", level: 70, category: "learning" },
+  { name: "Material UI", icon: null, color: "#007FFF", level: 65, category: "learning" },
+
+  // Backend
   { name: "Node.js", icon: SiNodedotjs, color: "#339933", level: 72, category: "backend" },
   { name: "Express.js", icon: SiExpress, color: "#000000", level: 70, category: "backend" },
-  { name: "Nest.js", icon: SiNestjs, color: "#E0234E", level: 65, category: "backend" },
-  { name: "Prisma", icon: SiPrisma, color: "#2D3748", level: 60, category: "backend" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#3388C6", level: 70, category: "backend" },
-  { name: "Firebase", icon: SiFirebase, color: "#FFCA28", level: 70, category: "backend" },
-  { name: "GraphQL", icon: null, color: "#E10098", level: 75, category: "backend" },
+  { name: "Prisma", icon: SiPrisma, color: "#2D3748", level: 60, category: "learning" },
+  { name: "Nest.js", icon: SiNestjs, color: "#E0234E", level: 60, category: "learning" },
+  { name: "GraphQL", icon: null, color: "#E10098", level: 60, category: "learning" },
 
-  // DevOps & Deployment
-  { name: "Docker", icon: SiDocker, color: "#2496ED", level: 70, category: "devops" },
-  { name: "Vercel", icon: SiVercel, color: "#000000", level: 88, category: "devops" },
-  { name: "AWS", icon: SiAmazon, color: "#FF9900", level: 65, category: "devops" },
-  { name: "Git", icon: SiGit, color: "#F05032", level: 90, category: "devops" },
-  { name: "GitHub", icon: SiGithub, color: "#181717", level: 92, category: "devops" },
+  // Dev Tools & Deployment
+  { name: "Git", icon: SiGit, color: "#F05032", level: 90, category: "devtools" },
+  { name: "GitHub", icon: SiGithub, color: "#181717", level: 92, category: "devtools" },
+  { name: "Vercel", icon: SiVercel, color: "#000000", level: 88, category: "devtools" },
+  { name: "Webpack", icon: SiWebpack, color: "#8DD6F9", level: 70, category: "devtools" },
+  { name: "Babel", icon: SiBabel, color: "#F9DC3E", level: 70, category: "devtools" },
+  { name: "Vite", icon: null, color: "#646CFF", level: 65, category: "devtools" },
 
-  // Testing & Quality
-  { name: "Jest", icon: SiJest, color: "#C21325", level: 75, category: "testing" },
-  { name: "Cypress", icon: SiCypress, color: "#17202C", level: 70, category: "testing" },
-  { name: "ESLint", icon: null, color: "#4B32C3", level: 85, category: "testing" },
-  { name: "Prettier", icon: null, color: "#F7B93E", level: 80, category: "testing" },
-
-  // Design & UI/UX
-  { name: "Figma", icon: SiFigma, color: "#F24E1E", level: 70, category: "design" },
-    { name: "Shadcn/ui", icon: null, color: "#000000", level: 80, category: "design" },
-  { name: "Material UI", icon: null, color: "#007FFF", level: 70, category: "design" },
-  { name: "Internationalization", icon: null, color: "#5A67D8", level: 75, category: "design" },
-  
-  // Build Tools & Bundlers
-  { name: "Webpack", icon: SiWebpack, color: "#8DD6F9", level: 70, category: "buildtools" },
-  { name: "Babel", icon: SiBabel, color: "#F9DC3E", level: 70, category: "buildtools" },
-  { name: "Vite", icon: null, color: "#646CFF", level: 75, category: "buildtools" },
-  
   // Payment & Services
-  { name: "Google Analytics", icon: null, color: "#4285F4", level: 90, category: "services" },
-  { name: "Sentry", icon: null, color: "#362D59", level: 70, category: "services" },
   { name: "Stripe", icon: SiStripe, color: "#008CDD", level: 70, category: "services" },
   { name: "Postman", icon: null, color: "#FF6C37", level: 75, category: "services" },
+  { name: "Google Analytics", icon: null, color: "#4285F4", level: 90, category: "services" },
 ];
 
+
 const categories = [
-  { id: "frontend", name: "Frontend", icon: Code2, color: "#3B82F6" },
-  { id: "mobile", name: "Frontend & Mobile", icon: Smartphone, color: "#14B8A6" },
-  { id: "backend", name: "Backend & Database", icon: Settings, color: "#10B981" },
-  { id: "devops", name: "DevOps & Deployment", icon: Cloud, color: "#8B5CF6" },
-  { id: "testing", name: "Testing & Quality", icon: TestTube, color: "#EF4444" },
-  { id: "design", name: "Design & UI/UX", icon: Palette, color: "#EC4899" },
-  { id: "buildtools", name: "Build Tools & Bundlers", icon: Settings, color: "#6B7280" },
-  { id: "services", name: "Payment & Services", icon: Zap, color: "#06B6D4" },
+  { id: "frontend", name: "Frontend Development", icon: Code2, color: "#3B82F6" },
+  { id: "ui", name: "UI & Styling", icon: Code2, color: "#3Bf2F6" },
+  { id: "backend", name: "Backend Basics", icon: Settings, color: "#10B981" },
+  { id: "learning", name: "Learning / Familiar", icon: Zap, color: "#A78BFA" },
+  { id: "devtools", name: "Dev Tools & Deployment", icon: Cloud, color: "#8B5CF6" },
+  { id: "services", name: "Payment & Services", icon: Smartphone, color: "#F97316" },
 ];
+
 
 export default function SkillsSection() {
   const t = useTranslations('skills');
@@ -151,7 +131,7 @@ export default function SkillsSection() {
         {/* Skills Grid */}
         <motion.div
           variants={fadeIn("up")}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {categories.map((category) => {
             const categorySkills = skills.filter(skill => skill.category === category.id);

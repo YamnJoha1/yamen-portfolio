@@ -1,26 +1,67 @@
 {
   "contact": {
     "title": "Get in Touch",
-    "description": "Get in touch with us for any inquiries",
+    "description": "Have a question or project in mind? Let's talk!",
+    "getinTouch": "Reach Out",
+    "chooseContact": "Pick your preferred way to connect. I'm here to help.",
     "form": {
-      "title": "Send us a Message",
-      "description": "Fill out the form below and we'll get back to you as soon as possible",
+      "title": "Send a Message",
+      "description": "Fill out the form and I'll get back to you soon.",
       "name": "Name",
       "email": "Email",
       "subject": "Subject",
-      "sending": "sending...",
       "message": "Message",
-      "submit": "Send Message",
-      "namePlaceholder": "Your name",
-      "emailPlaceholder": "Your email",
-      "subjectPlaceholder": "Your subject",
-      "messagePlaceholder": "Your message",
-      "success": "Message sent successfully!",
-      "error": "Failed to send message. Please try again."
+      "submit": "Send",
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "Your Email",
+      "subjectPlaceholder": "Subject",
+      "messagePlaceholder": "Your Message",
+      "sending": "Sending...",
+      "success": "Message sent!",
+      "error": "Oops! Something went wrong."
     },
+    "socialLinks": "Follow Me",
     "social": {
-      "title": "Social Contact",
-      "description": "Follow us on our social media"
-    }
+      "title": "Social Media",
+      "description": "Connect with me online",
+      "links": {
+        "github": {
+          "label": "GitHub",
+          "description": "Check out my projects"
+        },
+        "linkedin": {
+          "label": "LinkedIn",
+          "description": "Connect professionally"
+        },
+        "instagram": {
+          "label": "Instagram",
+          "description": "Follow my journey"
+        },
+        "whatsapp": {
+          "label": "WhatsApp",
+          "description": "Send me a message"
+        }
+      }
+    },
+    "info": {
+      "title": "Contact Info",
+      "description": "Ways to reach me",
+      "items": {
+        "email": {
+          "label": "Email",
+          "description": "yamn.joha@gmail.com"
+        },
+        "phone": {
+          "label": "Phone",
+          "description": "+963 938 044 059"
+        },
+        "location": {
+          "label": "Location",
+          "description": "Damascus, Syria"
+        }
+      }
+    },
+    "ctaButton": "Send Message",
+    "viewOurWork": "See My Work"
   }
 }

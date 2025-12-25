@@ -1,27 +1,67 @@
 {
   "contact": {
     "title": "تواصل معي",
-    "description": "لا تتردد في التواصل لأي استفسارات أو أسئلة",
+    "description": "لديك سؤال أو مشروع؟ لنتحدث!",
+    "getinTouch": "تواصل الآن",
+    "chooseContact": "اختر الطريقة التي تفضلها للتواصل. أنا هنا لمساعدتك.",
     "form": {
-      "title": "أرسل لي رسالة",
-      "description": "املأ النموذج أدناه وسأرد عليك في أقرب وقت ممكن",
+      "title": "أرسل رسالة",
+      "description": "املأ النموذج وسأرد عليك قريبًا.",
       "name": "الاسم",
       "email": "البريد الإلكتروني",
       "subject": "الموضوع",
       "message": "الرسالة",
-      "submit": "إرسال الرسالة",
-      "sending": "...جارِ الإرسال",
-      "namePlaceholder": "اكتب اسمك",
-      "emailPlaceholder": "اكتب بريدك الإلكتروني",
-      "subjectPlaceholder": "موضوع الرسالة",
-      "messagePlaceholder": "اكتب رسالتك هنا",
-      "success": "تم إرسال الرسالة بنجاح",
-      "error": "فشل الإرسال!"
+      "submit": "إرسال",
+      "namePlaceholder": "اسمك",
+      "emailPlaceholder": "بريدك الإلكتروني",
+      "subjectPlaceholder": "الموضوع",
+      "messagePlaceholder": "رسالتك",
+      "sending": "جارِ الإرسال...",
+      "success": "تم إرسال الرسالة!",
+      "error": "عفوًا! حدث خطأ."
     },
     "socialLinks": "تابعني",
     "social": {
-      "title": "تواصل اجتماعي",
-      "description": "تابعني عبر منصات التواصل الاجتماعي الخاصة بي"
-    }
+      "title": "وسائل التواصل",
+      "description": "تواصل معي عبر الإنترنت",
+      "links": {
+        "github": {
+          "label": "جيت هب",
+          "description": "اطلع على مشاريعي"
+        },
+        "linkedin": {
+          "label": "لينكدإن",
+          "description": "تواصل معي بشكل مهني"
+        },
+        "instagram": {
+          "label": "انستغرام",
+          "description": "تابع رحلتي"
+        },
+        "whatsapp": {
+          "label": "واتساب",
+          "description": "أرسل لي رسالة"
+        }
+      }
+    },
+    "info": {
+      "title": "معلومات التواصل",
+      "description": "طرق للوصول إليّ",
+      "items": {
+        "email": {
+          "label": "البريد الإلكتروني",
+          "description": "yamn.joha@gmail.com"
+        },
+        "phone": {
+          "label": "رقم الهاتف",
+          "description": "+963 938 044 059"
+        },
+        "location": {
+          "label": "الموقع",
+          "description": "دمشق، سوريا"
+        }
+      }
+    },
+    "ctaButton": "أرسل رسالة",
+    "viewOurWork": "تصفح أعمالي"
   }
 }

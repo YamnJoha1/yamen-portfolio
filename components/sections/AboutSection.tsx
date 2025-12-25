@@ -6,13 +6,14 @@ import { useLocale, useTranslations } from "next-intl";
 import { techStack } from "@/utils/techIcons";
 import { fadeIn } from "@/utils/motion";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 
 export default function AboutSection() {
   const t = useTranslations('about');
   const locale = useLocale();
 
   return (
-    <Section id="about" className="bg-muted/30 pl-4">
+    <Section id="about" className="bg-muted/30">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Column - Personal Info */}
         <motion.div
@@ -22,14 +23,14 @@ export default function AboutSection() {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          <div className="w-fit">
-            <h2 className="text-3xl md:text-4xl font-bold w-fit">
+          <div className="w-fit group">
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
               {t("title")}
             </h2>
-            <p className="text-muted-foreground max-w-xl mt-1">
+            <p className="text-muted-foreground max-w-md mx-auto text-sm sm:text-base">
               {t("subtitle")}
             </p>
-            <div className="relative h-1 mt-3 bg-accent w-[60%]">
+            <div className="relative h-1 mt-3 bg-accent w-[40%]">
               <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-accent bg-muted" />
               <div className="absolute -left-[26px] -top-[11px] w-8 h-1 rotate-45 bg-accent" />
             </div>
@@ -46,7 +47,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
             className="flex flex-wrap gap-3 pt-4"
           >
-            {techStack.map((tech, index) => (
+            {techStack.slice(10, 20).map((tech, index) => (
               <div
                 key={index}
                 className="flex items-center gap-2 bg-card/50 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg"
@@ -77,18 +78,18 @@ export default function AboutSection() {
 
             {/* Content */}
             <div className="relative space-y-4">
-              <div className="flex gap-3 items-center">
-                <Image src="/logos/yamn-jo.png" width={40} height={40} alt="LOGO" />
+              <div className="flex flex-col gap-3 items-center">
+                <Image src="/me.png" width={120} height={120} alt="LOGO" 
+                  className="object-cover rounded-[35px] shadow-xl mask-clip-stroke" 
+                />
                 <h3 className="text-2xl font-semibold text-primary">
                   {t("titleRight")}
                 </h3>
               </div>
 
-              {t("description").split("\n").map((line, index) => (
-                <p key={index} className="text-md text-foreground leading-relaxed">
-                  {line}
-                </p>
-              ))}
+              <div className="space-y-4 text-md text-foreground leading-relaxed">
+                <ReactMarkdown>{t("description")}</ReactMarkdown>
+              </div>
             </div>
           </motion.div>
         </div>

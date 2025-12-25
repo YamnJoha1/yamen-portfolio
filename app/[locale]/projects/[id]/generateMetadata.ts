@@ -3,12 +3,7 @@ import enProjects from '@/locales/en/projects.json';
 import arProjects from '@/locales/ar/projects.json';
 import { getGlobalMetadata } from '@/utils/metadata';
 
-
-
-export async function generateMetadata({   
-  params, 
-  }: {
-  params: Promise<{ locale: string, id: string }>}) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string, id: string }> }) {
   const { locale, id } = await params;
   const project = projects.find(p => p.id === id);
   const messages = locale === 'ar' ? arProjects : enProjects;

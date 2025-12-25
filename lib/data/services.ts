@@ -1,9 +1,9 @@
-import { Code, Palette, Server, Smartphone } from "lucide-react";
+import { Code, Palette, Server } from "lucide-react";
 
 export type Service = {
   icon: React.ElementType;
-  titleKey: "services.software" | "services.design" | "services.consulting" | "services.mobileDev";
-  descriptionKey: "services.description.software" | "services.description.design" | "services.description.consulting" | "services.description.mobileDev";
+  titleKey: "services.software" | "services.design" | "services.consulting";
+  descriptionKey: "services.description.software" | "services.description.design" | "services.description.consulting";
 };
 
 export const services: Service[] = [
@@ -21,10 +21,5 @@ export const services: Service[] = [
     icon: Server,
     titleKey: "services.consulting",
     descriptionKey: "services.description.consulting",
-  },
-  {
-    icon: Smartphone,
-    titleKey: "services.mobileDev",
-    descriptionKey: "services.description.mobileDev",
   },
 ];

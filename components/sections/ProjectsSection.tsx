@@ -27,7 +27,7 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Link href={`/${locale}/projects`} target="_blank">
+          <Link href={`${locale}/projects`}>
             <Button variant="outline" className="group">
               {t("viewAll")}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />

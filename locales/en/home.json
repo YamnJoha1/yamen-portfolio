@@ -2,12 +2,12 @@
   "home": {
     "hero": {
       "title": "Welcome to my portfolio",
-      "subtitle": "I'm Yamen, a Softwaer Developer specializing in crafting modern, intuitive user interfaces and building robust backend systems.  ",
+      "subtitle": "I'm Yamen, a Frontend Engineer specializing in building modern, scalable, and user-focused web interfaces with Next.js and TypeScript.",
       "cta": "Get in touch",
-      "bprojects": "My Projects"
+      "bprojects": "View Projects"
     },
     "graph": {
-      "title": "Building the future with cutting-edge technologies"
+      "title": "Building high-quality user interfaces with modern frontend technologies"
     }
   }
 }

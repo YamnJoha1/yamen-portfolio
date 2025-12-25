@@ -9,7 +9,7 @@ interface ProjectTagsProps {
 
 export const ProjectTags = ({ project, variant = "secondary" }: ProjectTagsProps) => {
   return (
-    <div className="flex flex-wrap gap-2 mb-4">
+    <div className="flex flex-wrap gap-2 my-4">
       <TagItem icon={<Tag className="w-4 h-4" />} label={project?.category} variant={variant} />
       <TagItem icon={<Folder className="w-4 h-4" />} label={project?.type} variant={variant} />
       <TagItem icon={<Calendar className="w-4 h-4" />} label={project?.year} variant={variant} />

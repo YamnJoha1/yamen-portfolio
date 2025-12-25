@@ -1,15 +1,13 @@
 {
   "services": {
     "title": "Services",
-    "software": "Web Development",
-    "mobileDev": "Mobile Development",
-    "design": "UI/UX Design",
-    "consulting": "Tech Consulting",
+    "software": "Frontend Development",
+    "design": "UI Implementation",
+    "consulting": "Frontend Consulting",
     "description": {
-    "software": "Custom software solutions tailored to your business needs",
-    "design": "Beautiful and intuitive user interfaces that engage users",
-    "consulting": "Expert guidance on technology strategy and implementation",
-    "mobileDev": "Native and cross-platform mobile applications"
-  }
+      "software": "Building modern, scalable frontend applications using React, Next.js, and TypeScript.",
+      "design": "Implementing clean and responsive user interfaces from design systems and mockups.",
+      "consulting": "Guidance on frontend architecture, performance optimization, and best practices."
+    }
   }
 }

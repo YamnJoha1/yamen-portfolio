@@ -4,15 +4,17 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { fadeIn, slideIn } from "@/utils/motion";
 import { TechIconsSection } from "@/graphic/TechIconsFloating";
 import { techStack } from "@/utils/techIcons";
+import Link from "next/link";
 
 
 
 export default function WelcomeSection() {
   const t = useTranslations('home.hero');
+  const locale = useLocale();
 
 
 
@@ -26,7 +28,7 @@ export default function WelcomeSection() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 py-24 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div 
@@ -56,18 +58,22 @@ export default function WelcomeSection() {
               {t("subtitle")}
             </p>
 
-            <div 
-              className="flex flex-wrap gap-4"
-            >
-              <Button size="lg" className="group">
-                {t("cta")}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
+            <div className="flex flex-wrap gap-4">
+              <Button size="lg" asChild className="group w-full sm:w-auto">
+                <Link href={`/${locale}/contact`} target="_blank" className="flex">
+                  {t("cta")}
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" className="group">
-                {t("bprojects")}
-                <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
+
+              <Button size="lg" variant="outline" asChild className="group w-full sm:w-auto">
+                <Link href={`/${locale}/projects`} target="_blank" className="flex">
+                  {t("bprojects")}
+                  <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
+                </Link>
               </Button>
             </div>
+
 
             {/* Tech Stack Pills */}
             <motion.div 

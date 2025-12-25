@@ -14,7 +14,7 @@ import { ProjectOverview } from '@/components/project/ProjectOverview';
 import { ProjectFeatures } from '@/components/project/ProjectFeatures';
 import { ProjectTechnologies } from '@/components/project/ProjectTechnologies';
 import { ShareProject } from '@/components/project/ShareProject';
-import { RelatedProjects } from '@/components/project/RelatedProjects';
+import { RelatedGrid } from '@/components/RelatedGrid';
 
 
 
@@ -42,10 +42,10 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
   }
 
   return (
-    <main className="min-h-screen lg:p-24 py-10 pt-20 bg-background">
+    <main className="min-h-screen pt-20 bg-background">
       <div className="container mx-auto px-6">
         {/* Back Button */}
-        <Button variant="ghost" asChild className="lg:mb-8 -ml-4">
+        <Button variant="ghost" asChild className="lg:mb-8 -ml-4 mt-3">
           <Link href={`/${locale}/projects`}>
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t("backToProjects")}
@@ -58,22 +58,42 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
           animate={{ opacity: 1, y: 0 }}
           className="mb-12"
         >
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6" dir={`${isRTL ? 'rtl' : 'ltr'}`}>
-            <div>
-              <h1 className="text-4xl font-bold mb-4 inline-block">{t(project.titleKey)}</h1>
-              <span className='mr-5 text-sm border border-accent shadow-lg rounded-lg py-1.5 px-3 font-bold '>
-                {project.statusKey && t(project.statusKey)}
-              </span>
-              <ProjectTags variant="outline" project={project} />
-              <p className={`text-lg text-muted-foreground max-w-3xl ${isRTL ? 'text-right' : 'text-left'}`}>
+          <div 
+            className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between"
+            dir={isRTL ? 'rtl' : 'ltr'}
+          >
+            {/* Left side (title, status, description, tags) */}
+            <div className="flex-1 flex flex-col gap-4">
+              {/* Title + Status */}
+              <div className="flex gap-3 flex-wrap mt-4 items-center">
+                <h1 className="text-3xl md:text-4xl font-bold">
+                  {t(project.titleKey)}
+                </h1>
+                {project.statusKey && (
+                  <span className="text-xs md:text-sm bg-accent shadow rounded-sm px-2 py-0.5 text-center font-medium">
+                    {t(project.statusKey)}
+                  </span>
+                )}
+              </div>
+
+              {/* Description */}
+              <p className={`text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl ${isRTL ? 'text-right' : 'text-left'}`}>
                 {t(project.descriptionKey)}
               </p>
+
+              {/* Tags */}
+              <div className="flex gap-2 overflow-x-auto pb-2 md:flex-wrap md:overflow-visible">
+                <ProjectTags variant="outline" project={project} />
+              </div>
             </div>
-             <div className="flex flex-col gap-4">
+
+            {/* Right side (links) */}
+            <div className="flex flex-col gap-3 min-w-[200px]">
               <ProjectLinks link={project.link} t={t} />
             </div>
           </div>
         </motion.div>
+
 
         {/* Device Preview */}
         <DevicePreview project={project} locale={locale} />
@@ -115,9 +135,51 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
           </div>
         </div>
 
-        {/* Related Projects */}
-        <RelatedProjects currentProjectId={id} locale={locale} />
+        {/* Extra Project Information */}
+        <div className="mt-12" dir={`${isRTL ? 'rtl' : 'ltr'}`}>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {project.audienceKey && (
+              <div className="bg-card dark:bg-card/80 rounded-xl p-5 shadow-md hover:shadow-lg transition">
+                <h3 className="text-lg font-medium mb-2">{t("audienceText")}</h3>
+                <p className="text-muted-foreground">{t(project.audienceKey)}</p>
+              </div>
+            )}
+            {project.goalKey && (
+              <div className="bg-card dark:bg-card/80 rounded-xl p-5 shadow-md hover:shadow-lg transition">
+                <h3 className="text-lg font-medium mb-2">{t("goalText")}</h3>
+                <p className="text-muted-foreground">{t(project.goalKey)}</p>
+              </div>
+            )}
+            {project.purposeKey && (
+              <div className="bg-card dark:bg-card/80 rounded-xl p-5 shadow-md hover:shadow-lg transition">
+                <h3 className="text-lg font-medium mb-2">{t("purposeText")}</h3>
+                <p className="text-muted-foreground">{t(project.purposeKey)}</p>
+              </div>
+            )}
+          </div>
+        </div>
+
+
+
       </div>
+        {/* Related Projects */}
+      <section className="py-16 bg-muted/30 mt-20">
+          <RelatedGrid
+            title={t("relatedProjects")}
+            subtitle={t("relatedSub")}
+            locale={locale}
+            readMoreLabel={t("viewProject")}
+            items={projects
+              .filter((p) => p.id !== id) 
+              .slice(0, 3)
+              .map((p) => ({
+                id: p.id,
+                title: t(p.titleKey),
+                description: t(p.descriptionKey),
+                href: `/${locale}/projects/${p.id}`,
+              }))}
+          />
+        </section>
     </main>
   );
 }

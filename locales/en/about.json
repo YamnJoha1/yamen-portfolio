@@ -1,7 +1,8 @@
-{"about": {
+{
+  "about": {
     "title": "About me",
-    "subtitle": "Softwaer Developer",
-    "titleRight": "Hello there, I'm Yamen",
-    "description":"A frontend-focused developer with a deep passion for crafting fast, accessible, and well-structured user interfaces using modern tools like Next.js and TypeScript. I pay close attention to design details and strive to create UI experiences that are smooth, responsive, and user-centered.\nOver the past few years, I’ve contributed to building dashboards, marketing websites, and e-commerce platforms — always aiming for performance, clarity, and reusability in every component I develop.\nI also have a solid understanding of backend technologies such as Nest js, Prisma, and PostgreSQL, gained through personal projects. This allows me to better understand the full development workflow and streamline integration between frontend and backend layers.\nCurrently, I’m working on a personal tech product that reflects my approach to building meaningful and high-quality digital experiences. I’m constantly looking to grow professionally and contribute to impactful, user-first projects."
+    "subtitle": "Frontend Engineer",
+    "titleRight": "Hello, I'm Yamen",
+    "description": "A frontend-focused engineer with 3+ years of experience building modern, production-ready web applications using React, Next.js, and TypeScript. I’m passionate about crafting clean, fast, and accessible user interfaces with a strong attention to UI quality and user experience.\n\nOver the years, I’ve worked on SaaS dashboards, marketing websites, and client-facing web applications, focusing on performance, maintainability, and reusable component design.\n\nI also have a basic understanding of backend technologies such as Node.js and Express, gained through personal projects, which helps me collaborate effectively and integrate frontend applications with APIs.\n\nCurrently, I’m working on a personal tech product while continuously improving my frontend skills and seeking opportunities to contribute to impactful, user-focused products."
   }
 }
