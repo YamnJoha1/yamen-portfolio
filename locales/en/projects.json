@@ -33,6 +33,9 @@
     "defaultPurpose": "This project was built as a personal challenge to enhance my skills.",
     "defaultGoal": "The main goal is to provide a clean and responsive user experience.",
     "defaultAudience": "It is intended for personal use and portfolio presentation.",
+    "relatedSub": "Take a look at similar projects you might like",
+    "projectsPageDescription" : "Discover my successful projects and innovative solutions built with the latest technologies. From web applications to mobile apps, each project showcases my skills in design, development, and problem-solving.",
+    "projectsPageTitle": "Projects",
 
     "scriptoWebsite": {
       "title": "Scripto Company Website",
@@ -179,6 +182,24 @@
       "audience": "General web users, startups, demo viewers",
       "goal": "To provide a lightweight and attractive landing experience.",
       "purpose": "A polished front page concept to test scroll and parallax animations."
+    },
+
+    "travelApp": {
+      "title": "Travel App Landing Page",
+      "description": "A modern travel app landing page that showcases destinations and key app features with a clean and engaging user experience.",
+      "overview": "A frontend project focused on building a visually appealing and responsive landing page for a travel application. It highlights travel destinations, app features, and call-to-action sections. Built with Next.js and TypeScript, styled using Tailwind CSS.",
+      "features": [
+        "Modern and fully responsive design",
+        "Showcase of travel destinations with visuals",
+        "Clean and intuitive user interface",
+        "Dedicated sections for app features",
+        "Clear call-to-action buttons",
+        "Optimized performance with Next.js"
+      ],
+      "status": "Completed",
+      "audience": "Travelers, explorers, travel startups",
+      "goal": "Create an attractive travel app landing page that highlights features and encourages user engagement.",
+      "purpose": "Demonstrate frontend development and UI/UX skills for travel-related applications."
     },
 
     

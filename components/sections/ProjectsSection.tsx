@@ -7,13 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/Section";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function ProjectsSection() {
   const t = useTranslations('projects');
-  const params = useParams();
-  const locale = params.locale as string || 'en';
+  const locale = useLocale();
   const featuredProjects = projects.slice(0, 3);
 
   return (

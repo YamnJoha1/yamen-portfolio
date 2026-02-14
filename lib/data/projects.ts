@@ -28,7 +28,7 @@ export interface Project {
   link?: string;
   year: number;
   client?: string;
-  featuresKey?: string;  // متغير لميزات المشروع (لاحظ أن في بياناتك تستخدم featuresKey)
+  featuresKey?: string;  
   github?: string;
   duration?: string;
   teamSize?: string;
@@ -56,7 +56,7 @@ export const projects: Project[] = [
       "Radix UI", "React Query", "Next Themes", "Next SEO"
     ],
     featuresKey: "scriptoWebsite.features",
-    link: "https://scripto-website-kappa.vercel.app/",
+    link: "https://scripto-technology.com/",
     github: undefined,
     duration: "N/A",
     teamSize: "1 developer",
@@ -84,7 +84,7 @@ export const projects: Project[] = [
       "NestJS", "PostgreSQL", "Cloudinary"
     ],
     featuresKey: "realEstate.features",
-    link: "https://real-estate-rouge-five.vercel.app/",
+    link: "https://real-estate-kohl-theta.vercel.app/",
     github: undefined,
     duration: "Ongoing",
     teamSize: "1 developer",
@@ -111,7 +111,7 @@ export const projects: Project[] = [
       "Framer Motion", "Lucide", "Swiper", "React Hook Form"
     ],
     featuresKey: "caros.features",
-    link: "https://caros-orpin.vercel.app/",
+    link: "https://caros-rho.vercel.app/",
     github: undefined,
     duration: "N/A",
     teamSize: "4 developers",
@@ -139,7 +139,7 @@ export const projects: Project[] = [
       "NestJS", "Stripe", "React Native"
     ],
     featuresKey: "ecommercePlatform.features",
-    link: "https://e-commerce-wine-phi.vercel.app/",
+    link: "https://e-commerce-two-mu-73.vercel.app/",
     github: undefined,
     duration: "N/A",
     teamSize: "1 developer",
@@ -194,8 +194,8 @@ export const projects: Project[] = [
       "Tailwind CSS", "EmailJS", "React Router"
     ],
     featuresKey: "reactPortfolio.features",
-    link: "https://my-react-portfolio-sage.vercel.app/",
-    github: undefined,
+    link: "https://react-portfolio-topaz-omega.vercel.app/",
+    github: "https://github.com/YamnJoha1/react-portfolio/",
     duration: "N/A",
     teamSize: "1 developer",
     statusKey: "reactPortfolio.status",
@@ -221,8 +221,8 @@ export const projects: Project[] = [
       "@react-three/drei", "@gsap/react", "Tailwind CSS"
     ],
     featuresKey: "iphone.features",
-    link: "https://iphone15-opal.vercel.app/",
-    github: undefined,
+    link: "https://i-phone-ecru-five.vercel.app/",
+    github: "https://github.com/YamnJoha1/IPhone",
     duration: "N/A",
     teamSize: "1 developer",
     statusKey: "iphone.status",
@@ -230,32 +230,33 @@ export const projects: Project[] = [
     goalKey: "iphone.goal",
     purposeKey: "iphone.purpose"
   },
-  
   {
-    id: "brainwave",
-    titleKey: "brainwave.title",
-    descriptionKey: "brainwave.description",
-    overviewKey: "brainwave.overview",
-    desktopImage: "/projects/Brainwave/Brainwave.png",
-    mobileImage: "/projects/Brainwave/Brainwave-iPhone.png",
-    tabletImage: "/projects/Brainwave/Brainwave-ipad11pro.png",
+    id: "travel-app",
+    titleKey: "travelApp.title",
+    descriptionKey: "travelApp.description",
+    overviewKey: "travelApp.overview",
+    desktopImage: "/projects/TravelApp/travel-macbook.png",
+    mobileImage: "/projects/TravelApp/travel-iphone.png",
+    tabletImage: "/projects/TravelApp/travel-ipad.png",
     category: "web",
     type: "landing-page",
     year: 2025,
     client: "Personal Project",
     technologies: [
-      "React", "Vite", "Tailwind CSS", "React Router", 
-      "react-just-parallax", "scroll-lock"
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
     ],
-    featuresKey: "brainwave.features",
-    link: "https://brainwave-phi-snowy.vercel.app/",
-    github: "https://YamnJoha1.github.io/Brainwave",
+    featuresKey: "travelApp.features",
+    link: "https://travel-app-rho-rosy.vercel.app/",
+    github: "https://github.com/YamnJoha1/travel-app",
     duration: "N/A",
     teamSize: "1 developer",
-    statusKey: "brainwave.status",
-    audienceKey: "brainwave.audience",
-    goalKey: "brainwave.goal",
-    purposeKey: "brainwave.purpose"
+    statusKey: "travelApp.status",
+    audienceKey: "travelApp.audience",
+    goalKey: "travelApp.goal",
+    purposeKey: "travelApp.purpose"
   }
   
 ]

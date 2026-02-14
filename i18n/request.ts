@@ -1,5 +1,4 @@
 import { getRequestConfig } from 'next-intl/server';
-import type { GetRequestConfigParams } from 'next-intl/server';
 
 const fileNames = [
   "nav",
@@ -13,15 +12,13 @@ const fileNames = [
   "skills"
 ];
 
-export default getRequestConfig(async ({ locale }: GetRequestConfigParams) => {
+export default getRequestConfig(async ({ locale }) => {
   const resolvedLocale = locale ?? 'en';
-
   const messages = {};
 
   for (const name of fileNames) {
-  
-    const module = await import(`../locales/${resolvedLocale}/${name}.json`);
-    Object.assign(messages, module.default);
+    const file = await import(`../locales/${resolvedLocale}/${name}.json`);
+    Object.assign(messages, file.default);
   }
 
   return {

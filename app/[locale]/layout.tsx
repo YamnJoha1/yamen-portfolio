@@ -1,28 +1,38 @@
+export const dynamic = 'force-static';
+export const revalidate = false;
+
+
+import { NextIntlClientProvider } from 'next-intl';
+import { notFound } from 'next/navigation';
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer";
 import { ScrollProvider } from '@/lib/contexts/ScrollContext';
 import { LoadingProvider } from '@/lib/contexts/LoadingContext';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
-import { NextIntlClientProvider } from 'next-intl';
-import { notFound } from 'next/navigation';
-import enNav from '@/locales/en/nav.json';
-import arNav from '@/locales/ar/nav.json';
-import enFooter from '@/locales/en/footer.json';
-import arFooter from '@/locales/ar/footer.json';
-
-export const revalidate = 60;
-
-const navMessages = {
-  en: enNav.nav ?? enNav,
-  ar: arNav.nav ?? arNav,
-};
-const footerMessages = {
-  en: enFooter.footer ?? enFooter,
-  ar: arFooter.footer ?? arFooter,
-};
 
 const supportedLocales = ['en', 'ar'] as const;
 type SupportedLocale = (typeof supportedLocales)[number];
+
+async function getMessages(locale: SupportedLocale) {
+  try {
+    const files = [
+      "nav", "experience", "footer",
+      "contact", "services", "about", "home", "projects", "skills"
+    ];
+
+    const messagesList = await Promise.all(
+      files.map(async (name) => {
+        const mod = await import(`@/locales/${locale}/${name}.json`);
+        return mod.default;
+      })
+    );
+
+    return Object.assign({}, ...messagesList);
+  } catch (e) {
+    console.error('Error loading messages:', e);
+    notFound();
+  }
+}
 
 export default async function LocaleLayout({
   children,
@@ -32,16 +42,15 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
   if (!supportedLocales.includes(locale as SupportedLocale)) {
     notFound();
   }
-  const typedLocale = locale as SupportedLocale;
-  const messages = {
-    nav: navMessages[typedLocale],
-    footer: footerMessages[typedLocale],
-  };
+
+  const messages = await getMessages(locale as SupportedLocale);
+
   return (
-    <NextIntlClientProvider locale={typedLocale} messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <LoadingProvider>
         <ScrollProvider>
           <LoadingSpinner />
@@ -55,3 +64,4 @@ export default async function LocaleLayout({
     </NextIntlClientProvider>
   );
 }
+

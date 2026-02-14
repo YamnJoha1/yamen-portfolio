@@ -57,7 +57,7 @@ export default function ProjectsPage() {
     <main className="min-h-screen bg-background">
       {/* Enhanced Hero Section */}
       <HeroSection
-        title={t("title")}
+        title={t("projectsPageTitle")}
         description={t("projectsPageDescription")}
       />
 
