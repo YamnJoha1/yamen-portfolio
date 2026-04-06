@@ -20,7 +20,7 @@ export default function StickyCVButton() {
         fixed bottom-4 z-50
         left-1/2 -translate-x-1/2
         md:left-auto md:translate-x-0
-        ${locale === "ar" ? "md:right-6" : "md:left-6"}
+        md:right-6
         
         flex items-center gap-2
         bg-accent text-primary
@@ -29,6 +29,7 @@ export default function StickyCVButton() {
         border-accent
         transition-all duration-300
         hover:scale-105 active:scale-95
+        font-semibold
       `}
     >
       <Download className="w-4 h-4" />
