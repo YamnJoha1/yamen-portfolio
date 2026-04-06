@@ -25,47 +25,40 @@ export const ContactCard = ({ icon, description, link, label, color }: ContactCa
 
   return (
     <motion.a
-      key={label}
       href={link}
       target="_blank"
       rel="noopener noreferrer"
       variants={fadeIn("up")}
       whileHover={{ x: 5 }}
       className="flex items-center bg-card gap-4 px-4 py-6 rounded-xl group border border-border/50 transition-all duration-300"
-      style={{
-        borderColor: "rgba(255,255,255,0.1)",
-      }}
     >
-      <style jsx>{`
-        a:hover {
-          border-color: ${color || "#888"} !important;
-        }
-      `}</style>
-
-      {/* 🟢 الأيقونة */}
+      {/* Icon */}
       <div
-        className="p-4 rounded-lg transition-transform duration-300 group-hover:scale-110"
+        className="p-4 rounded-lg shrink-0 transition-transform duration-300 group-hover:scale-110"
         style={{
-          backgroundColor: `${color}20`, 
+          backgroundColor: `${color}20`,
           color: color,
         }}
       >
         {icon}
       </div>
 
-      {/* 🔵 النصوص */}
-      <div className="flex-1">
-        <h3 className={`font-semibold truncate max-w-[80%] ${textAlignLabel}`}>{label}</h3>
+      {/* Text */}
+      <div className="flex-1 min-w-0">
+        <h3 className={`font-semibold truncate ${textAlignLabel}`}>
+          {label}
+        </h3>
+
         <p
           dir={dirDescription}
-          className={`text-sm text-muted-foreground truncate max-w-[90%] ${textAlignDescription}`}
+          className={`text-sm text-muted-foreground truncate ${textAlignDescription}`}
         >
           {description}
         </p>
       </div>
 
-      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-      
+      {/* Arrow */}
+      <ArrowRight className="w-4 h-4 shrink-0 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
     </motion.a>
   );
 };

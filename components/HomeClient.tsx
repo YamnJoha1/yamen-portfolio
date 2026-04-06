@@ -8,6 +8,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import SkillsSection from "@/components/sections/SkillsSection";
+import StickyCVButton from "./StickyCVButton";
 
 export default function HomeClient() {
   useEffect(() => {
@@ -38,6 +39,7 @@ export default function HomeClient() {
       <ProjectsSection />
       <ExperienceSection />
       <ContactSection />
+      <StickyCVButton />
     </div>
   );
 } 

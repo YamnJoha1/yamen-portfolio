@@ -154,7 +154,7 @@ export const projects: Project[] = [
     titleKey: "bookLibrary.title",
     descriptionKey: "bookLibrary.description",
     overviewKey: "bookLibrary.overview",
-    desktopImage: "/projects/real-estate.png",
+    desktopImage: "/projects/placeholder.jpg",
     mobileImage: "",
     tabletImage: "",
     category: "web",

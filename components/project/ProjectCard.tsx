@@ -31,7 +31,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <Link href={`/${locale}/projects/${project.id}`}>
         <div className="relative h-48 bg-muted dark:bg-muted/50 group">
           <Image
-            src={project.desktopImage ?? "/images/placeholder.webp"}
+            src={project.desktopImage ?? "/projects/placeholder.jpg"}
             alt={project.titleKey}
             fill
             className="object-cover object-top transition-transform group-hover:scale-105"

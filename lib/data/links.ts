@@ -23,7 +23,7 @@
       href: "https://github.com/YamnJoha1",
       labelKey: "github.label",
       descriptionKey: "github.description",
-      color: "#181717",
+      color: "#aaaaaa",
     },
     {
       icon: Linkedin,
