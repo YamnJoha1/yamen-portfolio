@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { fontSans } from "@/lib/fonts";
 
 export default function NotFound() {
   const locale = "en";  
@@ -23,27 +25,38 @@ export default function NotFound() {
 
   const { title, description, buttonText } = messages[locale] || messages.en;
 
+  // app/layout.tsx is a pass-through, so this renders its own <html>/<body>.
   return (
-    <AnimatePresence>
-      <motion.div
-        key="notfound"
-        variants={fadeIn("up")}
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-        className="flex flex-col items-center justify-center min-h-screen p-4 text-center"
+    <html lang={locale} dir="ltr" suppressHydrationWarning>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+        suppressHydrationWarning
       >
-        <Image src="/logos/yamn-jo.png" width={50} height={50} alt="LOGO" className="max-w-10 lg:min-w-10" />
-        <h2 className="mt-6 text-2xl font-semibold">{title}</h2>
-        <p className="my-2">{description}</p>
-        <Button
-          variant={"ghost"}
-          onClick={(() => window.history.back())}
-          className="border border-accent"
-        >
-          {buttonText}
-        </Button>
-      </motion.div>
-    </AnimatePresence>
+        <AnimatePresence>
+          <motion.div
+            key="notfound"
+            variants={fadeIn("up")}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="flex flex-col items-center justify-center min-h-screen p-4 text-center"
+          >
+            <Image src="/logos/yamn-jo.png" width={50} height={50} alt="LOGO" className="max-w-10 lg:min-w-10" />
+            <h2 className="mt-6 text-2xl font-semibold">{title}</h2>
+            <p className="my-2">{description}</p>
+            <Button
+              variant={"ghost"}
+              onClick={(() => window.history.back())}
+              className="border border-accent"
+            >
+              {buttonText}
+            </Button>
+          </motion.div>
+        </AnimatePresence>
+      </body>
+    </html>
   );
 }

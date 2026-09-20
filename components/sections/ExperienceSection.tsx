@@ -41,7 +41,14 @@ export default function ExperienceSection() {
         </Link>
       }
     >
+      {/* react-vertical-timeline-component positions its two columns with
+          physical CSS only: odd cards are unfloated (so they sit at the inline
+          start) and even cards are `float: right`. Under dir="rtl" both resolve
+          to the right and the left column goes empty, so the scaffold is pinned
+          to LTR. Card contents keep their own dir below, so Arabic still reads
+          right-to-left. */}
       <motion.div
+        dir="ltr"
         variants={fadeIn("up", "spring", 0.2)}
         initial="hidden"
         whileInView="visible"

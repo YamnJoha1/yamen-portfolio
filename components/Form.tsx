@@ -1,61 +1,70 @@
-import { Send } from "lucide-react";
+"use client";
+
+import { Mail } from "lucide-react";
+import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 import { Button } from "./ui/button";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import {
+  CONTACT_EMAIL,
+  MESSAGE_MAX_LENGTH,
+  WHATSAPP_NUMBER,
+} from "@/lib/constants";
 
 interface FormData {
   name: string;
-  email: string;
   subject: string;
   message: string;
 }
 
 export const Form = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-  
   const tf = useTranslations("contact.form");
-  
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    email: "",
     subject: "",
     message: "",
   });
-  
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (res.ok) {
-        setSubmitStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch {
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus("idle"), 3000);
-    }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
+
+  // Nothing is sent from this page. Both actions hand the composed message to
+  // the visitor's own app, where they press send.
+  const composeBody = () =>
+    `${formData.name}\n\n${formData.message}`.trim();
+
+  const openWhatsApp = () => {
+    const text = `*${formData.subject}*\n\n${composeBody()}`;
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+  const openEmail = () => {
+    if (!formRef.current?.reportValidity()) return;
+    const params = new URLSearchParams({
+      subject: formData.subject,
+      body: composeBody(),
+    });
+    window.location.href = `mailto:${CONTACT_EMAIL}?${params.toString()}`;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    openWhatsApp();
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {["name", "email", "subject"].map((field) => (
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+      {(["name", "subject"] as const).map((field) => (
         <div key={field}>
           <label htmlFor={field} className="block text-sm font-medium mb-1">
             {tf(field)}
@@ -63,41 +72,62 @@ export const Form = () => {
           <input
             id={field}
             name={field}
-            type={field === "email" ? "email" : "text"}
+            type="text"
             placeholder={tf(`${field}Placeholder`)}
-            value={formData[field as keyof FormData]}
+            value={formData[field]}
             onChange={handleChange}
             required
             className="w-full px-4 py-2 bg-background border border-input rounded-lg focus:ring-2 focus:ring-accent outline-none"
-          />  
+          />
         </div>
       ))}
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-1">{tf("message")}</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder={tf("messagePlaceholder")}
-            value={formData.message}
-            onChange={handleChange}
-            rows={4}
-            required
-            className="w-full px-4 py-2 bg-background border border-input rounded-lg focus:ring-2 focus:ring-accent outline-none"
-          />
+        <label htmlFor="message" className="block text-sm font-medium mb-1">
+          {tf("message")}
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder={tf("messagePlaceholder")}
+          value={formData.message}
+          onChange={handleChange}
+          rows={4}
+          required
+          maxLength={MESSAGE_MAX_LENGTH}
+          className="w-full px-4 py-2 bg-background border border-input rounded-lg focus:ring-2 focus:ring-accent outline-none"
+        />
       </div>
 
-      <Button type="submit" variant="default" disabled={isSubmitting} className="w-full">
-        <Send className="w-5 h-5 mr-2" />
-          {isSubmitting ? tf("sending") : tf("submit")}
-      </Button>
+      {/* Two explicit ways to send — neither is hidden behind the other. */}
+      <div className="space-y-3">
+        <p className="text-sm font-medium">{tf("chooseChannel")}</p>
 
-      {submitStatus === "success" && (
-        <p className="text-green-600 text-center">{tf("success")}</p>
-      )}
-      {submitStatus === "error" && (
-        <p className="text-red-600 text-center">{tf("error")}</p>
-      )}
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="space-y-1">
+            <Button type="submit" variant="default" className="w-full">
+              <SiWhatsapp className="w-5 h-5 me-2" aria-hidden="true" />
+              {tf("sendWhatsapp")}
+            </Button>
+            <p className="text-xs text-muted-foreground">
+              {tf("whatsappHint")}
+            </p>
+          </div>
+
+          <div className="space-y-1">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={openEmail}
+              className="w-full"
+            >
+              <Mail className="w-5 h-5 me-2" aria-hidden="true" />
+              {tf("sendEmail")}
+            </Button>
+            <p className="text-xs text-muted-foreground">{tf("emailHint")}</p>
+          </div>
+        </div>
+      </div>
     </form>
-  )
-}
+  );
+};

@@ -28,7 +28,7 @@ export default function ProjectsSection() {
           <Link href={`${locale}/projects`}>
             <Button variant="outline" className="group">
               {t("viewAll")}
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
+              <ArrowRight className="ms-2 h-4 w-4 group-hover:translate-x-1 transition" />
             </Button>
           </Link>
         </motion.div>

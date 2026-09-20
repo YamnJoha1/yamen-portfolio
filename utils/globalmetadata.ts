@@ -1,25 +1,35 @@
-// utils/metadata.ts
 import { Metadata } from "next";
+import { SITE_URL } from "@/lib/constants";
 
 export const globalMetadata: Metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Yamen Joha | Personal Portfolio",
+    default: "Yamen Joha | Product Engineer — Full-Stack",
     template: "%s | Yamen Joha",
   },
   description:
-    "Frontend developer passionate about building modern, smooth web applications using cutting-edge technologies like React.js, Next.js, and TypeScript.",
+    "Product Engineer — Full-Stack specialising in multi-tenant SaaS, scalable architectures, and modern web applications.",
   keywords: [
-    "frontend developer",
+    "Product Engineer",
+    "Full-Stack Developer",
     "React.js",
     "Next.js",
     "TypeScript",
-    "portfolio",
-    "web development",
+    "SaaS",
+    "Multi-tenant",
+    "Portfolio",
+    "Web Development",
   ],
   authors: [{ name: "Yamen Joha" }],
   creator: "Yamen Joha",
   publisher: "Yamen Joha",
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      en: `${SITE_URL}/en`,
+      ar: `${SITE_URL}/ar`,
+    },
+  },
   formatDetection: {
     email: true,
     address: false,
@@ -28,27 +38,26 @@ export const globalMetadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://yourdomain.com",
-    title: "Yamen Joha | Personal Portfolio",
+    url: SITE_URL,
+    title: "Yamen Joha | Product Engineer — Full-Stack",
     description:
-      "Frontend developer passionate about building modern, smooth web applications using cutting-edge technologies like React.js, Next.js, and TypeScript.",
+      "Product Engineer — Full-Stack specialising in multi-tenant SaaS, scalable architectures, and modern web applications.",
     siteName: "Yamen Joha",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Yamen Joha Portfolio",
+        alt: "Yamen Joha - Product Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yamen Joha | Personal Portfolio",
+    title: "Yamen Joha | Product Engineer — Full-Stack",
     description:
-      "Frontend developer passionate about building modern, smooth web applications using cutting-edge technologies like React.js, Next.js, and TypeScript.",
-    creator: "@yourhandle", // Replace with your Twitter handle if available
-    images: ["/images/twitter-image.jpg"],
+      "Product Engineer — Full-Stack specialising in multi-tenant SaaS, scalable architectures, and modern web applications.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -67,10 +76,6 @@ export const globalMetadata: Metadata = {
         url: "/logos/yamn-jo/favicon-96x96.png",
         type: "image/png",
         sizes: "96x96",
-      },
-      {
-        url: "/logos/yamn-jo/favicon.svg",
-        type: "image/svg+xml",
       },
       {
         url: "/logos/yamn-jo/favicon.ico",

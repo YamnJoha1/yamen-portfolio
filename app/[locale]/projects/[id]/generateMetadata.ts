@@ -2,6 +2,7 @@ import { projects } from '@/lib/data/projects';
 import enProjects from '@/locales/en/projects.json';
 import arProjects from '@/locales/ar/projects.json';
 import { getGlobalMetadata } from '@/utils/metadata';
+import { SITE_URL } from '@/lib/constants';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string, id: string }> }) {
   const { locale, id } = await params;
@@ -29,10 +30,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         images: [globalMetadata.defaultImage],
       },
       alternates: {
-        canonical: `/${locale}/projects/${id}`,
+        canonical: `${SITE_URL}/${locale}/projects/${id}`,
         languages: {
-          "en": `/en/projects/${id}`,
-          "ar": `/ar/projects/${id}`,
+          en: `${SITE_URL}/en/projects/${id}`,
+          ar: `${SITE_URL}/ar/projects/${id}`,
         },
       },
     };
@@ -52,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       locale: locale,
       alternateLocale: locale === 'en' ? 'ar' : 'en',
       siteName: globalMetadata.siteName,
-      url: `/${locale}/projects/${id}`,
+      url: `${SITE_URL}/${locale}/projects/${id}`,
       images: [projectImage],
     },
     twitter: {
@@ -62,10 +63,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       images: [projectImage],
     },
     alternates: {
-      canonical: `/${locale}/projects/${id}`,
+      canonical: `${SITE_URL}/${locale}/projects/${id}`,
       languages: {
-        "en": `/en/projects/${id}`,
-        "ar": `/ar/projects/${id}`,
+        en: `${SITE_URL}/en/projects/${id}`,
+        ar: `${SITE_URL}/ar/projects/${id}`,
       },
     },
   };

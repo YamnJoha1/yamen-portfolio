@@ -5,6 +5,8 @@ import arProjects from '@/locales/ar/projects.json';
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 import { ProjectDetailPageContent } from "./ProjectDetails";
 
+export { generateMetadata } from "./generateMetadata";
+
 export async function generateStaticParams() {
   const locales = ["en", "ar"];
   return projects.flatMap((project) =>

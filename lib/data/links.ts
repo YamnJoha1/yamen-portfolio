@@ -1,5 +1,5 @@
   import { SiGithub, SiWhatsapp } from "@icons-pack/react-simple-icons";
-  import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+  import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
   export interface SocialLink {
     icon: React.ElementType;
@@ -34,10 +34,17 @@
     },
     {
       icon: Instagram,
-      href: "https://www.instagram.com/scripto.technology/",
+      href: "https://www.instagram.com/yamen.dev/",
       labelKey: "instagram.label",
       descriptionKey: "instagram.description",
       color: "#E1306C",
+    },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/profile.php?id=61594358043415",
+      labelKey: "facebook.label",
+      descriptionKey: "facebook.description",
+      color: "#1877F2",
     },
     {
       icon: SiWhatsapp,

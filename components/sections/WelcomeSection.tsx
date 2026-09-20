@@ -62,14 +62,14 @@ export default function WelcomeSection() {
               <Button size="lg" asChild className="group w-full sm:w-auto">
                 <Link href={`/${locale}/contact`} target="_blank" className="flex">
                   {t("cta")}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
+                  <ArrowRight className="ms-2 h-4 w-4 group-hover:translate-x-1 transition" />
                 </Link>
               </Button>
 
               <Button size="lg" variant="outline" asChild className="group w-full sm:w-auto">
                 <Link href={`/${locale}/projects`} target="_blank" className="flex">
                   {t("bprojects")}
-                  <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition" />
+                  <ExternalLink className="ms-2 h-4 w-4 group-hover:translate-x-1 transition" />
                 </Link>
               </Button>
             </div>

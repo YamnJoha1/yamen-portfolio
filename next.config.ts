@@ -21,6 +21,11 @@ const nextConfig: NextConfig = {
     return config;
   },
   
+  // Serve modern formats from next/image. AVIF first, WebP as the fallback.
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
+
   // Configure experimental features
   experimental: {
     // Optimize server actions

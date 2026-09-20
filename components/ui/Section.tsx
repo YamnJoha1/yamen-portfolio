@@ -7,7 +7,6 @@ interface SectionProps {
   className?: string;
   title?: string;
   description?: string;
-  withDivider?: boolean;
   containerClassName?: string;
   titleSlotRight?: React.ReactNode;
   titleAlign?: "left" | "center"; 
@@ -20,7 +19,6 @@ export const Section = ({
   className,
   title,
   description,
-  withDivider = true,
   containerClassName,
   titleSlotRight,
   titleAlign = "left",
@@ -59,18 +57,6 @@ export const Section = ({
                     >
                       {description}
                     </p>
-                  )}
-
-                  {withDivider && (
-                    <div
-                      className={cn(
-                        "relative h-1 mt-3 bg-accent",
-                        isCentered ? "w-1/2" : "w-[30%]"
-                      )}
-                    >
-                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-accent bg-muted" />
-                      <div className="absolute -left-[26px] -top-[11px] w-8 h-1 rotate-45 bg-accent" />
-                    </div>
                   )}
                 </div>
 

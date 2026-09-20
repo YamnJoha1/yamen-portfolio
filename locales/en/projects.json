@@ -34,9 +34,8 @@
     "defaultGoal": "The main goal is to provide a clean and responsive user experience.",
     "defaultAudience": "It is intended for personal use and portfolio presentation.",
     "relatedSub": "Take a look at similar projects you might like",
-    "projectsPageDescription" : "Discover my successful projects and innovative solutions built with the latest technologies. From web applications to mobile apps, each project showcases my skills in design, development, and problem-solving.",
+    "projectsPageDescription": "Discover my successful projects and innovative solutions built with the latest technologies. From web applications to mobile apps, each project showcases my skills in design, development, and problem-solving.",
     "projectsPageTitle": "Projects",
-
     "scriptoWebsite": {
       "title": "Scripto Company Website",
       "description": "A portfolio landing page for a startup specialized in software development and digital solutions.",
@@ -56,7 +55,6 @@
       "goal": "Showcase team services and establish digital presence",
       "purpose": "Attract potential clients and build trust"
     },
-
     "realEstate": {
       "title": "Real Estate Platform",
       "description": "A modern real estate platform offering property listings, smart filtering, and user-friendly design.",
@@ -73,25 +71,31 @@
       "goal": "To provide a user-friendly, efficient tool for managing and showcasing properties online.",
       "purpose": "A portfolio SaaS project demonstrating full-stack capabilities and scalable architecture."
     },
-
     "caros": {
-      "title": "Caros - Car Rental and Sales Platform",
-      "description": "A modern platform offering premium car rental and sales services tailored for individuals and businesses.",
-      "overview": "Caros is a comprehensive vehicle rental and sales platform providing customers with access to luxury and economy vehicles. From airport transfers and wedding events to intercity travel and business meetings, Caros ensures safety, convenience, and quality.",
+      "title": "Caros — Multi-Tenant Dealership & Rental SaaS",
+      "description": "A bilingual white-label platform for showrooms and rental agencies — four surfaces from one deployment, with double-booking prevented by a database constraint.",
+      "overview": "Caros gives a showroom or rental agency its own branded, bilingual site with the inventory, lead and booking tooling behind it. One dealer is one row, resolved at runtime from the request host, so onboarding needs no deploy. A single codebase serves four distinct surfaces — dealer storefront, dealer dashboard, platform operator console and the marketing site — each with its own document and its own colour system.",
       "features": [
-        "Book or buy cars online with ease",
-        "Premium and economy vehicle selection",
-        "24/7 customer support and booking",
-        "Mobile-responsive user interface",
-        "Multilingual support (Arabic / English)",
-        "Secure and fast reservation process"
+        "Four surfaces from one codebase — dealer storefront, dealer dashboard, platform operator console and marketing site — each resolving its tenant differently: by request host, by signed-in user, or by no tenant at all.",
+        "A car cannot be double-booked. A Postgres EXCLUDE constraint refuses two overlapping confirmed bookings, so the engine rejects the write rather than application code that can be bypassed.",
+        "A vehicle carries three independent axes — listing lifecycle, storefront visibility, and whether the physical car may leave the lot — kept separate on purpose, because conflating them is what silently mis-sells a car.",
+        "Tenant isolation by tenant_id plus Row-Level Security, proven by an automated test that signs in as a real second tenant and asserts denial.",
+        "An append-only vehicle history written by database triggers, with no update or delete policy on the table at all — the only property that makes a history worth reading.",
+        "Every vehicle gets an indexable page with JSON-LD, printable QR codes that survive slug changes, and a Web Push notification to the dealer the moment a lead arrives."
       ],
-      "audience": "Individuals and businesses looking for reliable transportation and premium vehicle services.",
-      "goal": "To simplify car rental and sales in the region through an elegant and user-friendly online platform.",
-      "purpose": "Provide seamless access to car rental and sales with high-quality service and modern booking features.",
-      "status": "In development"
+      "status": "Live",
+      "audience": "Car showrooms and rental agencies replacing an agency-built site or a paper diary.",
+      "goal": "Put a dealer live on their own brand without a project — and make concurrent rental bookings provably safe.",
+      "purpose": "Sole engineer across four surfaces: architecture, Postgres schema and constraints, dashboards, storefront and design system.",
+      "gallery": {
+        "showroom": "White-label dealership showroom",
+        "dashboard": "Operator dashboard — today panel"
+      },
+      "demos": {
+        "showroom": "Showroom demo",
+        "rental": "Rental demo"
+      }
     },
-
     "ecommercePlatform": {
       "title": "E-commerce Platform",
       "description": "A modern multi-platform e-commerce application supporting web and mobile with secure payments and admin management.",
@@ -110,44 +114,6 @@
       "goal": "To create a reusable and scalable e-commerce system suitable for various business cases.",
       "purpose": "A professional SaaS product demonstrating full-stack architecture across platforms."
     },
-
-    "bookLibrary": {
-      "title": "Online Book Library",
-      "description": "A responsive web-based library app with authentication and image management.",
-      "overview": "This project is a fully responsive online book library that allows users to register and log in to browse a collection of books. Built using Next.js with Drizzle ORM connected to a Neon PostgreSQL database. ImageKit is used for media management and NextAuth for secure authentication. Designed with accessibility and performance in mind.",
-      "features": [
-        "User registration and login",
-        "Book list display",
-        "Image hosting via ImageKit",
-        "Rate-limiting via Upstash",
-        "Fully responsive design",
-        "Secure session management with NextAuth"
-      ],
-      "status": "Completed",
-      "audience": "General readers, developers, demo purposes",
-      "goal": "To demonstrate the use of modern stack with Drizzle ORM and image management in a book catalog system.",
-      "purpose": "A showcase of clean architecture, authentication flow, and integrations with modern services."
-    },
-
-    "reactPortfolio": {
-      "title": "Animated React Portfolio",
-      "description": "A 3D animated personal portfolio built with React and Three.js.",
-      "overview": "This project is a modern personal portfolio website featuring smooth animations and interactive 3D elements. It is built using React with Vite, and integrates Three.js via @react-three/fiber. The portfolio showcases work experience, skills, and contact features, providing a dynamic user experience using Framer Motion and EmailJS for sending messages.",
-      "features": [
-        "Animated 3D components with Three.js",
-        "Smooth transitions using Framer Motion",
-        "Contact form integrated with EmailJS",
-        "Responsive layout with Tailwind CSS",
-        "Projects and timeline display",
-        "Single-page application with React Router"
-      ],
-      "status": "Completed",
-      "audience": "Recruiters, clients, and general visitors",
-      "goal": "To demonstrate technical and visual skills in a highly interactive format.",
-      "purpose": "A personal branding tool highlighting skills and past work with engaging visual effects."
-    },
-
-
     "iphone": {
       "title": "iPhone 15 3D Interactive Showcase",
       "description": "Interactive 3D product display of iPhone 15 and iPhone 15 Pro.",
@@ -165,47 +131,49 @@
       "goal": "To present a high-fidelity 3D experience for iPhone product exploration.",
       "purpose": "A visual demo showcasing Three.js capabilities and advanced animation."
     },
-
-    "brainwave": {
-      "title": "Brainwave Landing Page",
-      "description": "Simple and stylish website with scroll animations and parallax effects.",
-      "overview": "Brainwave is a clean and modern landing page built with React and Tailwind CSS. It features smooth scrolling, parallax sections, and elegant layout transitions. Designed for showcasing products or ideas in a visually appealing way.",
+    "sello": {
+      "title": "Sello — Multi-Tenant Social-Commerce Platform",
+      "description": "A multi-tenant commerce OS: one codebase and one deployment serve many isolated merchants, each on its own subdomain with its own brand, catalogue and dashboard.",
+      "overview": "Sello turns a social-media merchant into a real storefront. One deployment serves many fully isolated tenants, and three independent axes decide what a store is: the vertical decides what the data is, the archetype decides how it looks, and the brand decides its colours. Above them sits a platform operator console. I built it end to end — schema and RLS, server-side order pricing, the section engine, the dashboard and the storefront.",
       "features": [
-        "Minimal modern design",
-        "Smooth scroll experience",
-        "Parallax effects with react-just-parallax",
-        "Mobile responsive layout",
-        "Tailwind CSS styling",
-        "Fast build with Vite"
+        "Tenant resolved at runtime from the request host and isolated by Postgres Row-Level Security — not by routing or application code. An automated test signs in as a second tenant and asserts denial.",
+        "Orders are priced only by the server. One SECURITY DEFINER RPC re-prices products and delivery from the database, so the client sends ids and quantities and can never send a price.",
+        "The dashboard adapts to the kind of store. A vertical — clothing, food, beauty or general — decides which product fields exist and their Arabic vocabulary. Attributes live in a JSON bag, so changing a store vertical never deletes what was already entered.",
+        "No component may branch on the vertical. Forms read a field list and render what they find, which keeps adding a fifth store type a typed code change rather than a sweep through the UI.",
+        "The tenant row is the page. A JSON-driven section engine — 10 types, 17 schema-validated variants, four design archetypes — lets a merchant compose and theme their storefront behind a draft/publish model.",
+        "Five route groups from one deployment, including a platform operator console bound to the root domain: a merchant host asking for /admin gets a 404, not a 403, and every platform write lands in an append-only audit log.",
+        "Arabic-first RTL throughout, with lint, typecheck and a custom design-system gate enforced in CI."
       ],
-      "status": "Completed",
-      "audience": "General web users, startups, demo viewers",
-      "goal": "To provide a lightweight and attractive landing experience.",
-      "purpose": "A polished front page concept to test scroll and parallax animations."
+      "status": "Private — walkthrough on request",
+      "audience": "Social-media merchants who need a real storefront, and the operator team running the platform behind them.",
+      "goal": "One codebase, many isolated merchants — with pricing that cannot be tampered with from the browser.",
+      "purpose": "Sole engineer: architecture, Postgres schema and RLS, order pricing, the section engine, dashboard, storefront and design system.",
+      "gallery": {
+        "storefront": "Merchant storefront on its own subdomain",
+        "dashboard": "Products and orders dashboard"
+      }
     },
-
-    "travelApp": {
-      "title": "Travel App Landing Page",
-      "description": "A modern travel app landing page that showcases destinations and key app features with a clean and engaging user experience.",
-      "overview": "A frontend project focused on building a visually appealing and responsive landing page for a travel application. It highlights travel destinations, app features, and call-to-action sections. Built with Next.js and TypeScript, styled using Tailwind CSS.",
+    "xBus": {
+      "title": "X-Bus — Intercity Bus Booking Marketplace",
+      "description": "A bus booking marketplace where seat selection holds up under concurrency — per-seat locks with server-issued TTLs, idempotent booking, and a test suite that proves it.",
+      "overview": "X-Bus is an intercity bus booking marketplace: passengers search trips, pick seats on a live seat map and book, while operators publish trips and check passengers in. Every piece of critical logic lives in Postgres rather than the client, behind one response envelope with a closed set of error codes — and the concurrency guarantees are proven by tests against a real database, not asserted.",
       "features": [
-        "Modern and fully responsive design",
-        "Showcase of travel destinations with visuals",
-        "Clean and intuitive user interface",
-        "Dedicated sections for app features",
-        "Clear call-to-action buttons",
-        "Optimized performance with Next.js"
+        "Per-seat locking under a server-issued TTL, so two passengers can never hold the same seat — verified by a concurrency suite that races real clients against a real database.",
+        "Idempotent booking creation that survives double-submits and expired locks, keeping the passenger in the flow instead of failing them at the last step.",
+        "All critical logic lives in Postgres RPCs, never in the client. Every response shares one envelope with a closed set of error codes the UI branches on — never on an HTTP status.",
+        "A real-database test suite with no mocks — concurrency, RLS, security, booking and operator flows — plus k6 load scripts aimed directly at seat locking and the seat map.",
+        "Mock fixtures are opt-in, never opt-out. An unset variable lands on real data, and a production build with mocks enabled throws at load rather than quietly serving fake answers to real users.",
+        "Arabic-first RTL and mobile-first, with the database client typed from the schema so a renamed RPC argument fails at compile time instead of at runtime."
       ],
-      "status": "Completed",
-      "audience": "Travelers, explorers, travel startups",
-      "goal": "Create an attractive travel app landing page that highlights features and encourages user engagement.",
-      "purpose": "Demonstrate frontend development and UI/UX skills for travel-related applications."
+      "status": "Private — walkthrough on request",
+      "audience": "Passengers booking intercity trips, and the operators publishing them and checking passengers in.",
+      "goal": "Make seat selection provably correct under concurrency — and prove it with tests rather than assert it.",
+      "purpose": "Sole engineer: Postgres RPCs and migrations, the client/server contract, the booking interface, and the test and load-testing setup.",
+      "gallery": {
+        "home": "Trip search and booking entry point",
+        "trips": "Trip results with seat availability"
+      }
     },
-
-    
-   
-    
-
     "categories": {
       "all": "All",
       "web": "Web",
@@ -213,14 +181,10 @@
     },
     "types": {
       "all": "All",
-      "landing": "Landing Page",
+      "saas": "SaaS",
       "marketplace": "Marketplace",
-      "ecommerce": "E-commerce",
-      "dashboard": "Dashboard",
-      "ios & android": "iOS & Android App",
-      "blog": "Blog",
-      "sass": "SASS",
-      "real-estate": "Real Estate"
+      "portfolio": "Portfolio",
+      "3d-showcase": "3D Showcase"
     },
     "noPreviewAvailable": "No {device} preview available.",
     "videoLoadError": "Failed to load video preview.",
@@ -239,6 +203,12 @@
     "copied": "Copied!",
     "linkCopied": "Link copied to clipboard!",
     "copyFailed": "Failed to copy link",
-    "imageLoadError": "Failed to load {device} image."
+    "privateLabel": "Private — walkthrough on request",
+    "imageLoadError": "Failed to load {device} image.",
+    "screenshots": "Screenshots",
+    "screenshotsNote": "Full-page captures from the running product.",
+    "viewFullSize": "View full size",
+    "closePreview": "Close preview",
+    "liveEnvironments": "Live environments"
   }
 }

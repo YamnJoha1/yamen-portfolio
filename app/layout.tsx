@@ -1,45 +1,16 @@
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
-import { LoadingProvider } from "@/lib/contexts/LoadingContext";
-import { NavigationProgress } from "@/components/ui/NavigationProgress";
-import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
-import { cn } from "@/lib/utils";
-import { fontSans } from "@/lib/fonts";
 import { globalMetadata as metadata, viewport } from "@/utils/globalmetadata";
-import { Suspense } from "react";
 
 export { metadata, viewport };
 
+// The <html>/<body> shell lives in app/[locale]/layout.tsx so that `lang` and
+// `dir` can be emitted from the active locale on the server. This root layout is
+// a pass-through. The root-level not-found/error/loading files can render
+// outside the [locale] segment, so each of them carries its own shell.
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html suppressHydrationWarning>
-      <head />
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-        suppressHydrationWarning
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Suspense fallback={null}>
-            <LoadingProvider>
-              <LoadingSpinner />
-              <NavigationProgress />
-              {children}
-            </LoadingProvider>
-          </Suspense>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+  return children;
 }

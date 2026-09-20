@@ -6,19 +6,18 @@
     "chooseContact": "Pick your preferred way to connect. I'm here to help.",
     "form": {
       "title": "Send a Message",
-      "description": "Fill out the form and I'll get back to you soon.",
+      "description": "Write your message below, then choose how to send it — WhatsApp or email. Both open ready to send; nothing is sent from this page.",
       "name": "Name",
-      "email": "Email",
       "subject": "Subject",
       "message": "Message",
-      "submit": "Send",
       "namePlaceholder": "Your Name",
-      "emailPlaceholder": "Your Email",
-      "subjectPlaceholder": "Subject",
+      "subjectPlaceholder": "What is this about?",
       "messagePlaceholder": "Your Message",
-      "sending": "Sending...",
-      "success": "Message sent!",
-      "error": "Oops! Something went wrong."
+      "chooseChannel": "Choose how to send",
+      "sendWhatsapp": "Send via WhatsApp",
+      "sendEmail": "Send via Email",
+      "whatsappHint": "Opens WhatsApp with your message ready — just press send.",
+      "emailHint": "Opens your email app with your message ready — just press send."
     },
     "socialLinks": "Follow Me",
     "social": {
@@ -36,6 +35,10 @@
         "instagram": {
           "label": "Instagram",
           "description": "Follow my journey"
+        },
+        "facebook": {
+          "label": "Facebook",
+          "description": "Follow my updates"
         },
         "whatsapp": {
           "label": "WhatsApp",

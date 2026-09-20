@@ -6,19 +6,18 @@
     "chooseContact": "اختر الطريقة التي تفضلها للتواصل. أنا هنا لمساعدتك.",
     "form": {
       "title": "أرسل رسالة",
-      "description": "املأ النموذج وسأرد عليك قريبًا.",
+      "description": "اكتب رسالتك أدناه، ثم اختر طريقة الإرسال — واتساب أو بريد. كلاهما يُفتح والرسالة جاهزة؛ لا يُرسل شيء من هذه الصفحة.",
       "name": "الاسم",
-      "email": "البريد الإلكتروني",
       "subject": "الموضوع",
       "message": "الرسالة",
-      "submit": "إرسال",
       "namePlaceholder": "اسمك",
-      "emailPlaceholder": "بريدك الإلكتروني",
-      "subjectPlaceholder": "الموضوع",
+      "subjectPlaceholder": "ما موضوع رسالتك؟",
       "messagePlaceholder": "رسالتك",
-      "sending": "جارِ الإرسال...",
-      "success": "تم إرسال الرسالة!",
-      "error": "عفوًا! حدث خطأ."
+      "chooseChannel": "اختر طريقة الإرسال",
+      "sendWhatsapp": "إرسال عبر واتساب",
+      "sendEmail": "إرسال عبر البريد",
+      "whatsappHint": "يفتح واتساب والرسالة جاهزة — اضغط إرسال فقط.",
+      "emailHint": "يفتح برنامج البريد والرسالة جاهزة — اضغط إرسال فقط."
     },
     "socialLinks": "تابعني",
     "social": {
@@ -36,6 +35,10 @@
         "instagram": {
           "label": "انستغرام",
           "description": "تابع رحلتي"
+        },
+        "facebook": {
+          "label": "فيسبوك",
+          "description": "تابع جديدي"
         },
         "whatsapp": {
           "label": "واتساب",

@@ -31,7 +31,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <Link href={`/${locale}/projects/${project.id}`}>
         <div className="relative h-48 bg-muted dark:bg-muted/50 group">
           <Image
-            src={project.desktopImage ?? "/projects/placeholder.jpg"}
+            src={project.desktopImage ?? "/projects/placeholder.webp"}
             alt={project.titleKey}
             fill
             className="object-cover object-top transition-transform group-hover:scale-105"
@@ -95,7 +95,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           {/* Action Buttons */}
-          <ProjectLinks link={project.link} t={t} />
+          <ProjectLinks link={project.link} status={project.status} t={t} />
         </div>
       </div>
 

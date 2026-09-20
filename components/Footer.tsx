@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="bg-background/80 backdrop-blur-sm border-t">
       <div className="container mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-center md:justify-between gap-8">
         {/* Brand and Description */}
-        <div className="text-center md:text-left space-y-4 max-w-md flex flex-col md:flex-row gap-4 items-center">
+        <div className="text-center md:text-start space-y-4 max-w-md flex flex-col md:flex-row gap-4 items-center">
           <Link href={`/${locale}`}> 
             <Image 
               src="/logos/yamn-jo.png"
@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="text-muted-foreground text-sm text-center md:text-right">
+        <p className="text-muted-foreground text-sm text-center md:text-end">
           &copy; {year} {t("copyright")}
         </p>
       </div>

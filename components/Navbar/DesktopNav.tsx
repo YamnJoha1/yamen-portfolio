@@ -64,7 +64,7 @@ const DesktopNav = () => {
           variant="ghost"
           size="icon"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="mr-2"
+          className="me-2"
         >
           <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -88,7 +88,7 @@ const DesktopNav = () => {
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: 1, y: 8 }}
                 exit={{ opacity: 0, y: 0 }}
-                className="absolute right-0 top-full mt-1 w-32 bg-background border rounded-md shadow-lg z-50"
+                className="absolute end-0 top-full mt-1 w-32 bg-background border rounded-md shadow-lg z-50"
               >
                 <button
                   className="w-full text-start px-4 py-2 hover:bg-muted transition-colors"

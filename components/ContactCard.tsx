@@ -1,7 +1,6 @@
 import { fadeIn } from "@/utils/motion";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useLocale } from "next-intl";
 
 interface ContactCardProps {
   icon: React.ReactNode;
@@ -12,16 +11,14 @@ interface ContactCardProps {
 }
 
 export const ContactCard = ({ icon, description, link, label, color }: ContactCardProps) => {
-  const locale = useLocale();
-  const isRTL = locale === "ar";
-
   const isEmail = description.includes("@");
   const isPhone = /^[\d\s+\-()]+$/.test(description);
 
-  const dirDescription = isEmail || isPhone ? "ltr" : isRTL ? "rtl" : "ltr";
-  const textAlignLabel = isRTL ? "text-right" : "text-left";
-  const textAlignDescription =
-    isEmail || isPhone ? "text-right" : isRTL ? "text-right" : "text-left";
+  // Emails and phone numbers are forced LTR; everything else inherits the
+  // document direction set on <html>.
+  const dirDescription = isEmail || isPhone ? "ltr" : undefined;
+  const textAlignLabel = "text-start";
+  const textAlignDescription = isEmail || isPhone ? "text-end" : "text-start";
 
   return (
     <motion.a

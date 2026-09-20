@@ -4,34 +4,23 @@ export const revalidate = false;
 
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
+import { setRequestLocale } from 'next-intl/server';
+import { ThemeProvider } from 'next-themes';
+import { Suspense } from 'react';
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer";
 import { ScrollProvider } from '@/lib/contexts/ScrollContext';
 import { LoadingProvider } from '@/lib/contexts/LoadingContext';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { NavigationProgress } from '@/components/ui/NavigationProgress';
+import { cn } from '@/lib/utils';
+import { fontSans } from '@/lib/fonts';
 
 const supportedLocales = ['en', 'ar'] as const;
 type SupportedLocale = (typeof supportedLocales)[number];
 
-async function getMessages(locale: SupportedLocale) {
-  try {
-    const files = [
-      "nav", "experience", "footer",
-      "contact", "services", "about", "home", "projects", "skills"
-    ];
-
-    const messagesList = await Promise.all(
-      files.map(async (name) => {
-        const mod = await import(`@/locales/${locale}/${name}.json`);
-        return mod.default;
-      })
-    );
-
-    return Object.assign({}, ...messagesList);
-  } catch (e) {
-    console.error('Error loading messages:', e);
-    notFound();
-  }
+export function generateStaticParams() {
+  return supportedLocales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({
@@ -47,21 +36,47 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const messages = await getMessages(locale as SupportedLocale);
+  // Required for static rendering: without it next-intl reads the locale from a
+  // middleware header, which is unavailable under `dynamic = 'force-static'`.
+  setRequestLocale(locale);
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <LoadingProvider>
-        <ScrollProvider>
-          <LoadingSpinner />
-          <header>
-            <Navbar />
-          </header>
-          <main>{children}</main>
-          <Footer />
-        </ScrollProvider>
-      </LoadingProvider>
-    </NextIntlClientProvider>
+    <html
+      lang={locale}
+      dir={locale === 'ar' ? 'rtl' : 'ltr'}
+      suppressHydrationWarning
+    >
+      <head />
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+        suppressHydrationWarning
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Suspense fallback={null}>
+            <LoadingProvider>
+              <NextIntlClientProvider>
+                <ScrollProvider>
+                  <LoadingSpinner />
+                  <NavigationProgress />
+                  <header>
+                    <Navbar />
+                  </header>
+                  <main>{children}</main>
+                  <Footer />
+                </ScrollProvider>
+              </NextIntlClientProvider>
+            </LoadingProvider>
+          </Suspense>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
-

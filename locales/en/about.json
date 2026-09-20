@@ -1,8 +1,14 @@
 {
   "about": {
+    "stats": {
+      "yearsExperience": "Years Experience",
+      "projectsShipped": "Projects Shipped",
+      "yearsSaas": "Years Shipping SaaS",
+      "passion": "Passion"
+    },
     "title": "About me",
-    "subtitle": "Frontend Engineer",
+    "subtitle": "Product Engineer — Full-Stack",
     "titleRight": "Hello, I'm Yamen",
-    "description": "A frontend engineer with 3+ years of experience building scalable, production-ready SaaS and web applications using React, Next.js, and TypeScript.\n\nI specialize in crafting high-quality, performant user interfaces with a strong focus on clean architecture, reusability, and user experience. Throughout my work, I’ve built complex dashboards, marketplaces, and multi-feature platforms that are designed to scale and remain maintainable over time.\n\nI have hands-on experience improving application performance by up to 30% through techniques such as code splitting, lazy loading, and efficient state management. I’ve also developed reusable UI systems that reduced development time by around 25%, helping teams move faster and deliver features more efficiently.\n\nI’m comfortable working in fast-paced startup and remote environments, collaborating with cross-functional teams to deliver polished, user-focused products. My experience includes working closely with designers and backend engineers to turn ideas into reliable, production-ready applications.\n\nIn addition to my frontend expertise, I have a solid understanding of backend fundamentals such as Node.js, Express, and APIs, which allows me to build well-integrated solutions and communicate effectively across the stack.\n\nCurrently, I’m working on a SaaS product while continuously improving my frontend skills, with a strong interest in building impactful, high-quality digital products."
+    "description": "I'm a Product Engineer who builds multi-tenant SaaS end to end — design, frontend, and backend. Four years in frontend engineering, the last two spent shipping complete products rather than screens.\n\nMy work centres on multi-tenant architecture: one codebase and one deployment serving many fully isolated tenants, with the data boundary enforced in Postgres through Row-Level Security rather than in routing or application code. Alongside that, reusable component libraries and design-token systems that cut delivery time for new features.\n\nEverything I ship is Arabic-first. Full Arabic (RTL) / English internationalization built with logical CSS properties — not a mirrored afterthought.\n\nI take ideas from concept to production using a modern AI-assisted workflow, delivering the output of a small team as a single engineer. I'm comfortable owning products independently in fast-paced, remote teams."
   }
 }

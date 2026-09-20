@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useLocale, useTranslations } from "next-intl";
@@ -15,10 +15,13 @@ import { navLinks } from "@/utils/navLinks";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-// Enhanced motion variants
-const sidebarVariants = {
+// Enhanced motion variants.
+// The drawer docks on the logical end edge (end-0), so the off-screen offset has
+// to follow the reading direction — otherwise it slides in from the wrong side
+// in Arabic. Durations, stiffness and damping are unchanged.
+const makeSidebarVariants = (isRTL: boolean) => ({
   closed: {
-    x: "100%",
+    x: isRTL ? "-100%" : "100%",
     opacity: 0,
     transition: {
       type: "spring" as const,
@@ -39,11 +42,11 @@ const sidebarVariants = {
       delayChildren: 0.2
     }
   }
-};
+});
 
-const menuItemVariants = {
+const makeMenuItemVariants = (isRTL: boolean) => ({
   closed: {
-    x: 20,
+    x: isRTL ? -20 : 20,
     opacity: 0,
     transition: {
       duration: 0.2
@@ -58,7 +61,7 @@ const menuItemVariants = {
       damping: 30
     }
   }
-};
+});
 
 const backdropVariants = {
   closed: {
@@ -83,6 +86,69 @@ const MobileNav = () => {
   const pathname = usePathname();
  
   const [isOpen, setIsOpen] = useState(false);
+  const isRTL = locale === "ar";
+  const sidebarVariants = useMemo(() => makeSidebarVariants(isRTL), [isRTL]);
+  const menuItemVariants = useMemo(() => makeMenuItemVariants(isRTL), [isRTL]);
+
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
+  const wasOpen = useRef(false);
+
+  // Escape to close, Tab kept inside the panel, and the page behind it locked.
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        return;
+      }
+      if (event.key !== "Tab" || !panelRef.current) return;
+
+      const focusable = Array.from(
+        panelRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.offsetParent !== null);
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
+
+  // Move focus into the panel on open and back to the trigger on close.
+  useEffect(() => {
+    if (isOpen) {
+      wasOpen.current = true;
+      const id = window.setTimeout(() => {
+        panelRef.current
+          ?.querySelector<HTMLElement>('button, a[href]')
+          ?.focus();
+      }, 0);
+      return () => window.clearTimeout(id);
+    }
+    if (wasOpen.current) {
+      wasOpen.current = false;
+      triggerRef.current?.focus();
+    }
+  }, [isOpen]);
 
   // Icon mapping for nav items
   const getNavIcon = (href: string) => {
@@ -114,10 +180,13 @@ const MobileNav = () => {
         whileTap={{ scale: 0.95 }}
       >
         <Button
+          ref={triggerRef}
           variant="ghost"
           size="icon"
           onClick={() => setIsOpen(true)}
           aria-label="Open menu"
+          aria-expanded={isOpen}
+          aria-haspopup="dialog"
           className="relative"
         >
           <motion.div
@@ -155,7 +224,10 @@ const MobileNav = () => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed top-0 right-0 h-screen w-[320px] z-50 bg-background/80 backdrop-blur-sm border-l border-border/50 shadow-2xl flex flex-col"
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            className="fixed top-0 end-0 h-screen w-[320px] z-50 bg-background/80 backdrop-blur-sm border-s border-border/50 shadow-2xl flex flex-col"
             aria-label="Mobile navigation menu"
           >
             {/* Header */}
@@ -163,7 +235,7 @@ const MobileNav = () => {
               className="flex items-center justify-between p-6 border-b border-border/50"
               variants={menuItemVariants}
             >
-              <h2 className="text-left font-extrabold text-accent">
+              <h2 className="text-start font-extrabold text-accent">
                 <Logo />
               </h2>
               <motion.div
@@ -238,7 +310,7 @@ const MobileNav = () => {
                         {isActiveLink && (
                           <motion.div
                             layoutId="activeIndicator"
-                            className="w-2 h-2 bg-primary rounded-full ml-auto"
+                            className="w-2 h-2 bg-primary rounded-full ms-auto"
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ duration: 0.2 }}

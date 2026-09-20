@@ -28,13 +28,10 @@ const categoryIcons: Record<ProjectCategory, ReactNode> = {
 
 const typeValues: (ProjectType | "all")[] = [
   "all",
-  "landing",
-  "real-estate",
+  "saas",
   "marketplace",
-  "ecommerce",
-  "dashboard",
-  "ios & android",
-  "blog",
+  "portfolio",
+  "3d-showcase",
 ];
 
 export function Filters({
@@ -62,7 +59,7 @@ export function Filters({
               {categoryIcons[selectedCategory]}
               {t(`categories.${selectedCategory}`)}
               <X
-                className="w-3 h-3 ml-1 cursor-pointer"
+                className="w-3 h-3 ms-1 cursor-pointer"
                 onClick={() => onCategoryChange("all")}
               />
             </Badge>
@@ -72,7 +69,7 @@ export function Filters({
             <Badge variant="secondary" className="flex items-center gap-2">
               {t(`types.${selectedType}`)}
               <X
-                className="w-3 h-3 ml-1 cursor-pointer"
+                className="w-3 h-3 ms-1 cursor-pointer"
                 onClick={() => onTypeChange("all")}
               />
             </Badge>
@@ -90,7 +87,7 @@ export function Filters({
             className="min-w-[120px]"
           >
             {categoryIcons[category]}
-            <span className="ml-2">{t(`categories.${category}`)}</span>
+            <span className="ms-2">{t(`categories.${category}`)}</span>
           </Button>
         ))}
       </div>

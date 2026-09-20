@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl';
 import { ProjectTags } from '@/components/project/ProjectTags';
 import { ProjectLinks } from '@/components/project/ProjectLinks';
 import { DevicePreview } from '@/components/project/DevicePreview';
+import { ProjectGallery } from '@/components/project/ProjectGallery';
 import { VideoPreview } from '@/components/project/VideoPreview';
 import { ProjectOverview } from '@/components/project/ProjectOverview';
 import { ProjectFeatures } from '@/components/project/ProjectFeatures';
@@ -21,7 +22,6 @@ import { RelatedGrid } from '@/components/RelatedGrid';
 export function ProjectDetailPageContent({ locale, id }: { locale: string, id: string }) {
   const t = useTranslations('projects');
   const project = projects.find(p => p.id === id);
-  const isRTL = locale === 'ar';
 
   // Get current URL for sharing
   const projectUrl = typeof window !== 'undefined' ? window.location.href : '';
@@ -45,9 +45,9 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
     <main className="min-h-screen pt-20 bg-background">
       <div className="container mx-auto px-6">
         {/* Back Button */}
-        <Button variant="ghost" asChild className="lg:mb-8 -ml-4 mt-3">
+        <Button variant="ghost" asChild className="lg:mb-8 -ms-4 mt-3">
           <Link href={`/${locale}/projects`}>
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className="w-4 h-4 me-2" />
             {t("backToProjects")}
           </Link>
         </Button>
@@ -60,7 +60,6 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
         >
           <div 
             className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between"
-            dir={isRTL ? 'rtl' : 'ltr'}
           >
             {/* Left side (title, status, description, tags) */}
             <div className="flex-1 flex flex-col gap-4">
@@ -77,7 +76,7 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
               </div>
 
               {/* Description */}
-              <p className={`text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl ${isRTL ? 'text-right' : 'text-left'}`}>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl text-start">
                 {t(project.descriptionKey)}
               </p>
 
@@ -89,14 +88,19 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
 
             {/* Right side (links) */}
             <div className="flex flex-col gap-3 min-w-[200px]">
-              <ProjectLinks link={project.link} t={t} />
+              <ProjectLinks link={project.link} status={project.status} demos={project.demos} t={t} />
             </div>
           </div>
         </motion.div>
 
 
-        {/* Device Preview */}
-        <DevicePreview project={project} locale={locale} />
+        {/* Device mockups need a live URL to frame; without one the full-page
+            gallery below is the real presentation. */}
+        {project.link && <DevicePreview project={project} locale={locale} />}
+
+        {project.gallery && project.gallery.length > 0 && (
+          <ProjectGallery items={project.gallery} />
+        )}
 
         {/* Video Preview */}
         {project.videoUrl && (
@@ -112,7 +116,7 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-8" dir={`${isRTL ? 'rtl' : 'ltr'}`}>
+          <div className="space-y-8">
             <ProjectTechnologies technologies={project.technologies} locale={locale} />
             <ShareProject 
               projectTitle={t(project.titleKey)} 
@@ -128,6 +132,8 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
               <h2 className="text-xl font-semibold mb-4">{t("quickLinks")}</h2>
               <ProjectLinks
                 link={project.link}
+                status={project.status}
+                demos={project.demos}
                 t={t}
                 column
               />
@@ -136,7 +142,7 @@ export function ProjectDetailPageContent({ locale, id }: { locale: string, id: s
         </div>
 
         {/* Extra Project Information */}
-        <div className="mt-12" dir={`${isRTL ? 'rtl' : 'ltr'}`}>
+        <div className="mt-12">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {project.audienceKey && (
               <div className="bg-card dark:bg-card/80 rounded-xl p-5 shadow-md hover:shadow-lg transition">

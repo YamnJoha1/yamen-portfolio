@@ -43,7 +43,6 @@ export function DevicePreview({ project, locale }: DevicePreviewProps) {
   const [previewMode, setPreviewMode] = useState<"image" | "live">("live");
   const [refreshKey, setRefreshKey] = useState(0);
   const iframeRefs = useRef<{ [key: string]: HTMLIFrameElement | null }>({});
-  const isRTL = locale === "ar";
 
   const handleImageLoad = (device: "desktop" | "tablet" | "mobile") => {
     setLoadingStates((prev) => ({ ...prev, [device]: false }));
@@ -100,11 +99,7 @@ export function DevicePreview({ project, locale }: DevicePreviewProps) {
     >
       {/* Header */}
       <div className="flex flex-col lg:flex-row items-center gap-5 justify-between mb-6">
-        <h2
-          className={`text-2xl font-semibold ${
-            isRTL ? "text-right" : "text-left"
-          }`}
-        >
+        <h2 className="text-2xl font-semibold text-start">
           {t("devicePreviews")}
         </h2>
 
@@ -225,7 +220,9 @@ export function DevicePreview({ project, locale }: DevicePreviewProps) {
                     </div>
                   )}
 
-                  {loadingStates[device.key] && (
+                  {loadingStates[device.key] &&
+                    (canShowLivePreview ||
+                      (device.image && !errorStates[device.key])) && (
                     <div className="absolute inset-0 flex items-center justify-center bg-background/80 rounded-lg">
                       <div className="text-center">
                         <Spinner />

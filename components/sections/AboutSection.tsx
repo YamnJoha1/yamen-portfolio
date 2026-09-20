@@ -2,15 +2,15 @@
 
 import { motion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { techStack } from "@/utils/techIcons";
+import { projects } from "@/lib/data/projects";
 import { fadeIn } from "@/utils/motion";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
 export default function AboutSection() {
   const t = useTranslations("about");
-  const locale = useLocale();
 
   return (
     <Section id="about" className="bg-muted/30">
@@ -24,10 +24,6 @@ export default function AboutSection() {
           <p className="text-muted-foreground text-sm md:text-base">
             {t("subtitle")}
           </p>
-
-          <div className="relative h-1 mt-3 bg-accent w-24 mx-auto">
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-accent bg-muted" />
-          </div>
         </div>
 
         {/* Profile Card */}
@@ -49,10 +45,7 @@ export default function AboutSection() {
           <h3 className="text-xl md:text-2xl font-semibold text-primary">
             {t("titleRight")}
           </h3>
-          <div
-            dir={locale === "ar" ? "rtl" : "ltr"}
-            className="max-w-4xl mx-auto text-center md:text-left space-y-4 text-secondary-foreground leading-relaxed"
-          >
+          <div className="max-w-4xl mx-auto text-center md:text-start space-y-4 text-secondary-foreground leading-relaxed">
             <ReactMarkdown>{t("description")}</ReactMarkdown>
           </div>
         </motion.div>
@@ -67,10 +60,10 @@ export default function AboutSection() {
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-4"
         >
-          <StatCard value="3+" label={locale === "en" ? "Years Experience" : "سنوات الخبرة"} />
-          <StatCard value="50+" label={locale === "en" ? "Projects Completed" : "المشاريع"} />
-          <StatCard value="100%" label={locale === "en" ? "Client Satisfaction" : "رضا العملاء"} />
-          <StatCard value="∞" label={locale === "en" ? "Passion" : "الشغف"} />
+          <StatCard value="4+" label={t("stats.yearsExperience")} />
+          <StatCard value={`${projects.length}`} label={t("stats.projectsShipped")} />
+          <StatCard value="2" label={t("stats.yearsSaas")} />
+          <StatCard value="∞" label={t("stats.passion")} />
         </motion.div>
 
         {/* Tech Stack */}

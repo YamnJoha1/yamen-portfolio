@@ -121,10 +121,6 @@ export default function SkillsSection() {
             <p className="text-muted-foreground max-w-2xl mt-2">
               {t("subtitle")}
             </p>
-            <div className="relative h-1 mt-3 bg-accent w-[60%] mx-auto">
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-accent bg-muted" />
-              <div className="absolute -left-[26px] -top-[11px] w-8 h-1 rotate-45 bg-accent" />
-            </div>
           </div>
         </motion.div>
 

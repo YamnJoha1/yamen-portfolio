@@ -10,11 +10,10 @@ interface VideoPreviewProps {
   locale: string;
 }
 
-export function VideoPreview({ videoUrl, locale }: VideoPreviewProps) {
+export function VideoPreview({ videoUrl }: VideoPreviewProps) {
   const t = useTranslations('projects');
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const isRTL = locale === 'ar';
 
   const handleLoadStart = () => setIsLoading(true);
   const handleCanPlay = () => setIsLoading(false);
@@ -30,7 +29,7 @@ export function VideoPreview({ videoUrl, locale }: VideoPreviewProps) {
         animate={{ opacity: 1, y: 0 }}
         className="mb-12 space-y-4"
       >
-        <h2 className={`text-2xl font-semibold ${isRTL ? 'text-right' : 'text-left'}`}>
+        <h2 className="text-2xl font-semibold text-start">
           {t("projectPreview")}
         </h2>
         <div className="rounded-xl overflow-hidden shadow-lg bg-muted dark:bg-muted/50 p-8 flex items-center justify-center">
@@ -49,7 +48,7 @@ export function VideoPreview({ videoUrl, locale }: VideoPreviewProps) {
       animate={{ opacity: 1, y: 0 }}
       className="mb-12 space-y-4"
     >
-      <h2 className={`text-2xl font-semibold ${isRTL ? 'text-right' : 'text-left'}`}>
+      <h2 className="text-2xl font-semibold text-start">
         {t("projectPreview")}
       </h2>
       <div className="rounded-xl overflow-hidden shadow-lg bg-muted dark:bg-muted/50 relative">
