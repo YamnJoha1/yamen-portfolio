@@ -1,7 +1,7 @@
 {
   "footer": {
     "copyright": "All rights reserved.",
-"description": "A portfolio showcasing my experience and projects as a Frontend Developer specialized in React.js, Next.js, and TypeScript.",
+"description": "A portfolio of multi-tenant SaaS products I've built end to end with Next.js, TypeScript and PostgreSQL.",
     "quickLinks": "Quick Links",
     "resources": "Resources",
     "documentation": "Documentation",

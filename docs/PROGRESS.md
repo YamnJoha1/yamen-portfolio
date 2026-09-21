@@ -847,3 +847,133 @@ They were left in place rather than deleted: removing the owner's own screenshot
 Two older orphans remain as well: `e-commerce/ecommerce-categories-light-iphone.webp` and `Scripto/scripto-iPadPro11.webp` (18 KB).
 
 **Verification** — `npm run build` clean (24/24 static pages), `npx tsc --noEmit` clean, `npm run lint` clean. Arabic gallery captions confirmed rendering in `/ar/projects/sello`.
+
+
+---
+
+## 2026-09-21 — Identity unification: Product Engineer, not Frontend Engineer
+
+The site carried two positionings at once. `about.json` and `metadata.json` had already
+been moved to "Product Engineer / full-stack", but the hero, footer, services and
+experience sections still described the owner as a Frontend Engineer/Developer. A visitor
+reading top to bottom met both claims.
+
+**The decision applied:** frontend is a technology used, not a personal label. Every
+*global self-description* naming a frontend role was replaced. Job titles held at actual
+companies were left alone — `Frontend Developer (React.js)` at Unifi Solutions is a fact
+about a past role, not a claim about who the owner is today.
+
+### Changed — 8 files, 30 lines, EN and AR in lockstep
+
+| File | Keys |
+|---|---|
+| `locales/{en,ar}/home.json` | `home.hero.subtitle` |
+| `locales/{en,ar}/footer.json` | `footer.description` |
+| `locales/{en,ar}/services.json` | `services.{software,design,consulting}` + all three `services.description.*` |
+| `locales/{en,ar}/experience.json` | 3 of 4 `list[].title`, plus all 4 `list[0].points` (Scripto) |
+
+Services were reframed from frontend-only to product/full-stack: **SaaS Product
+Development**, **Multi-Tenant Architecture**, **Frontend Engineering** — the third keeps
+frontend as one competency among several rather than the whole identity.
+
+Experience titles: Scripto `Frontend Engineer` → `Product / Frontend Engineer`;
+freelance `Frontend Developer (Freelance)` → `Full-Stack Developer (Freelance)`;
+`Junior Web Developer (Freelance)` → `Web Developer (Freelance)`. Scripto's four bullets
+were replaced with resume-level ones (multi-tenancy, design-token system, RTL/LTR via
+logical properties, spec-to-production ownership). No metric or client name was invented.
+
+Arabic reuses the vocabulary already established in the corrected About section —
+*مهندس منتج*, *منصات SaaS متعددة المستأجرين*, *من طرف إلى طرف* — so the two sections no
+longer read as two different translators.
+
+### Deliberately not touched
+
+Per the owner's "start, don't touch the rest":
+
+- **Skills section.** Its category names (`Backend Basics`, `Learning / Familiar`) are
+  **hardcoded English inside `SkillsSection.tsx`**, not in any locale file, so the Arabic
+  site renders them in English today — a standing violation of the no-strings-in-`.tsx`
+  rule. Renaming them with EN/AR parity is impossible without moving them into
+  `skills.json`, which the owner declined for now. NestJS, Prisma and GraphQL therefore
+  still sit under "Learning / Familiar", which contradicts the full-stack positioning.
+- **X-Bus → Naql display rename.** Would have reversed the previous session's rename and
+  desynced `github/README.md`.
+- `home.graph.title` and `skills.subtitle`, both still frontend-only self-descriptions.
+- `about.json`, `metadata.json`, Caros/Sello content.
+
+### Open mismatch
+
+`lib/data/services.ts` still maps the three cards to `Code`, `Palette`, `Server`. With the
+new titles, `Palette` now fronts "Multi-Tenant Architecture" and `Server` fronts "Frontend
+Engineering" — the icons are effectively swapped. Not changed, since it falls outside the
+copy-only scope.
+
+**Verification** — 290 leaf strings across all 9 locale file pairs confirmed key-for-key
+identical EN/AR; every replacement matched exactly once (script aborts otherwise);
+no mojibake (em dash verified as `e2 80 94`); `npx tsc --noEmit`, `npm run lint` and
+`npm run build` (24/24 static pages) all clean. Each new string was then confirmed present
+in the rendered `.next/server/app/{en,ar}.html`, and all three superseded strings confirmed
+absent.
+
+
+---
+
+## 2026-09-21 (later) — Services icons, broken project links, RTL device mockup
+
+### 1. Services icons swapped
+
+Renaming the service cards left `lib/data/services.ts` pointing `Palette` at "Multi-Tenant
+Architecture" and `Server` at "Frontend Engineering" — exactly backwards. Swapped.
+
+### 2. Project detail page — three separate defects
+
+Reported as "the project detail page doesn't work". All fourteen pages returned 200 and
+rendered a correct `<h1>` server-side, so the fault was in how they were *reached* and
+*described*, not in how they render.
+
+**a. Card title link 404'd.** `ProjectCard.tsx` had two links to the same page: the image
+used `/${locale}/projects/${id}`, the title used `/projects/${id}`. The middleware does not
+rewrite a locale-less path — `curl /projects/sello` returns a hard **404**, confirmed
+against the running server. Clicking the image worked; clicking the title did not. That
+asymmetry is why it looked intermittent.
+
+**b. Home "View Projects" link was relative.** `ProjectsSection.tsx` used
+`` href={`${locale}/projects`} `` — no leading slash. From `/en` it happens to resolve to
+`/en/projects`, so it looked fine; from any deeper path it would resolve relative to that
+path instead. Fixed to an absolute href.
+
+**c. Every project page shipped `<title>undefined | Portfolio</title>`.** Project keys are
+dotted paths (`"sello.title"`), but `generateMetadata` indexed the messages object flatly:
+`messages.projects["sello.title"]` → `undefined`. Title, description, Open Graph and Twitter
+cards were all affected on all 14 pages — every shared link would have previewed as
+"undefined". Added a `resolveKey` helper that walks the path.
+
+### 3. Device mockup broke in Arabic only
+
+The screen layer inside `RealisticDeviceMockup` is a fixed-size box (e.g. `1200px` wide for
+the MacBook) that is scaled down to fit via `transform: scale()` with
+`transform-origin: top left`, sitting inside an `overflow-hidden` parent that is narrower
+than it.
+
+A block child wider than its containing block anchors to the **inline-start** edge. Under
+`dir="ltr"` that is the left edge, so the box starts at x=0 and the scale pulls it into
+view. Under `dir="rtl"` the anchor flips to the right edge, putting the box's left corner at
+a negative offset — and since `transform-origin` is still the physical top-left, the scaled
+content lands entirely outside the visible screen. The frame rendered; the screen inside it
+was empty. English was unaffected because nothing flipped.
+
+**Fix:** `dir="ltr"` on the mockup root. The frame is a picture of a device, not text, so it
+is the one element that should not mirror. Everything around it — headings, buttons,
+captions, page direction — still follows the locale.
+
+Verified in the built HTML: `/ar/projects/caros` contains exactly **one** `dir="ltr"`
+element (the mockup) while `<html>` remains `lang="ar" dir="rtl"`, and the Arabic
+"device previews" heading still renders.
+
+**Checked and cleared:** `projectUrl` in `ProjectDetails.tsx` is `''` on the server and the
+real URL on the client, which looks like a hydration mismatch — but it is only ever read
+inside event handlers in `ShareProject`, never rendered into the DOM. No defect.
+
+**Verification** — `npx tsc --noEmit`, `npm run lint`, `npm run build` (24/24) clean after
+each change. All 14 project pages probed against `next start`: 200. Titles confirmed correct
+in EN and AR.

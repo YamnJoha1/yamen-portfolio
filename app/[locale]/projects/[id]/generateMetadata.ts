@@ -4,6 +4,20 @@ import arProjects from '@/locales/ar/projects.json';
 import { getGlobalMetadata } from '@/utils/metadata';
 import { SITE_URL } from '@/lib/constants';
 
+/**
+ * Project keys are dotted paths ("sello.title"), so a flat index returns
+ * undefined and the tag renders "undefined | Portfolio". Walk the path instead.
+ */
+function resolveKey(messages: unknown, path: string): string | undefined {
+  const value = path
+    .split('.')
+    .reduce<unknown>(
+      (node, part) => (node as Record<string, unknown> | undefined)?.[part],
+      messages
+    );
+  return typeof value === 'string' ? value : undefined;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string, id: string }> }) {
   const { locale, id } = await params;
   const project = projects.find(p => p.id === id);
@@ -39,8 +53,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     };
   }
 
-  const title = messages.projects[project.titleKey as keyof typeof messages.projects] as string;
-  const description = messages.projects[project.descriptionKey as keyof typeof messages.projects] as string;
+  const title = resolveKey(messages.projects, project.titleKey) ?? project.id;
+  const description = resolveKey(messages.projects, project.descriptionKey) ?? '';
   const projectImage = project.desktopImage || project.tabletImage || project.mobileImage || globalMetadata.defaultImage;
 
   return {

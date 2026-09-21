@@ -49,7 +49,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <div>
           <div className="flex items-start justify-between mb-4">
             <div>
-              <Link href={`/projects/${project.id}`}>
+              <Link href={`/${locale}/projects/${project.id}`}>
                 <h3 className="text-xl font-semibold mb-2 hover:text-primary transition-colors">
                   {t(project.titleKey)}
                 </h3>

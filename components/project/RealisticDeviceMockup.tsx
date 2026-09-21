@@ -79,7 +79,12 @@ export function RealisticDeviceMockup({
 
 
   return (
+    // الإطار صورة جهاز لا نص، وطبقة الشاشة تحته تعتمد على left
+    // و transform-origin: top left. في RTL يلتصق الطفل الأعرض من حاويته
+    // بالحافة اليمنى، فيخرج المحتوى المُصغّر عن الإطار وتظهر الشاشة فارغة.
+    // لذلك يبقى المجسّم LTR دائماً في اللغتين.
     <div
+      dir="ltr"
       className={`relative w-full ${frameClassName}`}
       style={{
         aspectRatio: style.aspectRatio.toString(),

@@ -4,20 +4,20 @@
     "subtitle": "What I have done so far",
     "list": [
       {
-        "title": "Frontend Engineer",
+        "title": "Product / Frontend Engineer",
         "company": "Scripto",
         "date": "May 2025 – Present",
         "icon": "/logos/scripto-logo.png",
         "iconBg": "#111",
         "points": [
-          "Developing and maintaining frontend applications using Next.js and TypeScript.",
-          "Building reusable UI components with Shadcn/ui, focusing on clean design and usability.",
-          "Implementing multi-language (i18n) user interfaces.",
-          "Improving code structure and frontend maintainability."
+          "Build and maintain multi-tenant SaaS products with Next.js and TypeScript; one codebase serves many isolated tenants.",
+          "Designed a reusable component library and design-token system that cut delivery time for new features.",
+          "Implemented full Arabic (RTL) / English internationalization using logical CSS properties.",
+          "Own features from spec to production in tight startup cycles."
         ]
       },
       {
-        "title": "Frontend Developer (Freelance)",
+        "title": "Full-Stack Developer (Freelance)",
         "company": "Remote / Self-Employed",
         "date": "Jan 2024 – Apr 2025",
         "icon": "/logos/freelancer.png",
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "title": "Junior Web Developer (Freelance)",
+        "title": "Web Developer (Freelance)",
         "company": "Remote / Project-based",
         "date": "Mar 2022 – May 2023",
         "icon": "/logos/freelancer.png",

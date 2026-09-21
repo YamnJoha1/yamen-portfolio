@@ -2,7 +2,7 @@
   "home": {
     "hero": {
       "title": "Welcome To My Portfolio",
-      "subtitle": "I'm Yamen, a Frontend Engineer specializing in building modern, scalable, and user-focused web interfaces with Next.js and TypeScript.",
+      "subtitle": "I'm Yamen, a Product Engineer who builds multi-tenant SaaS end to end — design, frontend, and backend — with Next.js, TypeScript and PostgreSQL.",
       "cta": "Get in touch",
       "bprojects": "View Projects"
     },

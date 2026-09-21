@@ -1,7 +1,7 @@
 {
   "footer": {
     "copyright": "جميع الحقوق محفوظة.",
-    "description": "موقع يعرض خبرتي ومشاريعي كمطور واجهات أمامية متخصص في React.js وNext.js وTypeScript.",
+    "description": "معرض لمنتجات SaaS متعددة المستأجرين بنيتُها من طرف إلى طرف باستخدام Next.js و TypeScript و PostgreSQL.",
     "quickLinks": "روابط سريعة",
     "resources": "المصادر",
     "documentation": "التوثيق",

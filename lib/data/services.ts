@@ -13,12 +13,12 @@ export const services: Service[] = [
     descriptionKey: "services.description.software",
   },
   {
-    icon: Palette,
+    icon: Server,
     titleKey: "services.design",
     descriptionKey: "services.description.design",
   },
   {
-    icon: Server,
+    icon: Palette,
     titleKey: "services.consulting",
     descriptionKey: "services.description.consulting",
   },
